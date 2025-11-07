@@ -24,11 +24,6 @@
 - [Orz-3](https://github.com/Orz-3) - 提供了mini图标资源
 - [Peng-YM](https://github.com/Peng-YM) - 提供了Sub-Store解析器
 
-## 使用说明
-
-1. 下载或克隆本项目
-2. 在Loon代理工具中导入`loon.conf`配置文件
-3. 根据个人需求调整节点订阅和策略组设置
 
 ## 许可证
 
