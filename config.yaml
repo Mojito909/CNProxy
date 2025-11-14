@@ -1,0 +1,936 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+    - tls://223.5.5.5
+    - tls://223.6.6.6
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-queryport: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  # 修正：default-nameserver 改为常规 IP
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  direct-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  respect-rules: true
+
+proxies: ~
+
+proxy-providers:
+  
+proxy-groups:
+
+  # 根入口组：所有未被特殊规则匹配的流量都指向这个组
+  - name: 🚀 节点选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Proxy.png
+    type: select
+    proxies: 
+      - 自动选择 # 自动测速组
+      - DIRECT
+      - Netflix
+      - YouTube
+      - AI
+      - Telegram
+      - Google
+      - HK 香港
+      - US 美国
+      # 根据需求添加其他国家分组
+
+  # 自动测速组：包含所有节点，根据延迟自动选择
+  - name: 自动选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Proxy.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 全球
+      - 香港
+      - 台湾
+      - 新加坡
+      - 日本
+      - 美国
+      - 英国
+      - 韩国
+      - 德国
+      - 印度
+      - 俄罗斯
+
+  # 策略组 (Strategy Groups)
+  - name: Netflix
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Netflix.png
+    type: select
+    proxies: 
+      - 自动选择 
+      - HK 香港 # 可添加特定地区优化流媒体
+      - US 美国
+      - 默认
+
+  - name: YouTube
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/YouTube.png
+    type: select
+    proxies: 
+      - 自动选择 
+      - 默认
+
+  - name: Speedtest
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Speedtest.png
+    type: select
+    proxies: 
+      - 自动选择
+      - DIRECT
+
+  - name: Microsoft
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Microsoft.png
+    type: select
+    proxies: 
+      - DIRECT
+      - 自动选择
+
+  - name: Google
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Google.png
+    type: select
+    proxies: 
+      - 自动选择
+      - 默认
+
+  - name: Telegram
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Telegram.png
+    type: select
+    proxies: 
+      - 自动选择
+      - 默认
+
+  - name: AI
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Bot.png
+    type: select
+    proxies: 
+      - 自动选择
+      - 默认
+
+  - name: 默认 # 备用或手动选择节点
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Final.png
+    type: select
+    proxies:
+      - 自动选择
+      - DIRECT
+
+  # 基于地区分组 (Region Groups)
+  - name: HK 香港
+    filter: "港|🇭🇰|HK|(?i)Hong"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Hong_Kong.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 香港
+
+  - name: TW 台湾
+    filter: "台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Taiwan.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 台湾
+
+  - name: SG 新加坡
+    filter: "新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Singapore.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 新加坡
+
+  - name: JP 日本
+    filter: "日|🇯🇵|东京|JP|(?i)Japan"
+    icon: https://fastly.jsdelivr.gh/Koolson/Qure/IconSet/mini/Japan.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 日本
+
+  - name: US 美国
+    filter: "美|🇺🇲|US|(?i)States|American"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/United_States.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 美国
+
+  - name: UK 英国
+    filter: "英|🇬🇧|UK|(?i)Britain|England"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/United_Kingdom.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 英国
+
+  - name: KR 韩国
+    filter: "韩|🇰🇷|KR|(?i)Korea"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Korea.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 韩国
+
+  - name: DE 德国
+    filter: "德|🇩🇪|DE|(?i)Germany"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Germany.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 德国
+
+  - name: IN 印度
+    filter: "印|🇮🇳|IN|(?i)India"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/India.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 印度
+
+  - name: RU 俄罗斯
+    filter: "俄|🇷🇺|RU|(?i)Russia"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Russia.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 俄罗斯
+
+
+rules:
+  - DOMAIN-KEYWORD,quic,REJECT
+
+  # 广告拦截（应尽可能靠前）
+  - RULE-SET,Reject,REJECT
+
+  # 局域网/国内IP（应尽可能靠前）
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - RULE-SET,Lan,DIRECT
+
+  # --- 常见服务策略 ---
+
+  # 影音串流
+  - RULE-SET,netflix,Netflix
+  - RULE-SET,disney,Netflix # Disney+ 归入 Netflix 组
+  - RULE-SET,spotify,自动选择
+
+  # 社交媒体/通信
+  - RULE-SET,telegram,Telegram
+  # Telegram IP-ASN 规则统一指向 Telegram 组
+  - IP-ASN,62014,Telegram,no-resolve
+  - IP-ASN,59930,Telegram,no-resolve
+  - IP-ASN,44907,Telegram,no-resolve
+  - IP-ASN,211157,Telegram,no-resolve
+  - PROCESS-NAME,Telegram.exe,Telegram
+  - PROCESS-NAME,Telegram,Telegram
+
+  - RULE-SET,twitter,自动选择
+  - DOMAIN-SUFFIX,tapbots.com,自动选择
+  - RULE-SET,instagram,自动选择
+  - RULE-SET,facebook,自动选择
+  
+  # 谷歌/YouTube
+  - RULE-SET,youtube,YouTube
+  - RULE-SET,google,Google
+
+  # AI 平台
+  - RULE-SET,AI,AI
+  
+  # 微软/Xbox/Steam
+  - RULE-SET,microsoft@cn,DIRECT
+  - RULE-SET,microsoft,Microsoft
+  - RULE-SET,xbox,Microsoft
+  - RULE-SET,steam@cn,DIRECT
+  - RULE-SET,steam,自动选择
+
+  # 苹果服务
+  - DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  - PROCESS-NAME,trustd,自动选择 # Apple OCSP
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,AppleProxy,自动选择
+
+  # 常用工具/下载
+  - RULE-SET,speedtest,Speedtest
+  - RULE-SET,github,自动选择
+  # Proxy 软件直连
+  - PROCESS-NAME,v2ray,DIRECT
+  - PROCESS-NAME,Surge,DIRECT
+  - PROCESS-NAME,ss-local,DIRECT
+  - PROCESS-NAME,privoxy,DIRECT
+  - PROCESS-NAME,trojan,DIRECT
+  - PROCESS-NAME,trojan-go,DIRECT
+  - PROCESS-NAME,naive,DIRECT
+  - PROCESS-NAME,CloudflareWARP,DIRECT
+  - PROCESS-NAME,Cloudflare WARP,DIRECT
+  - IP-CIDR,162.159.193.0/24,DIRECT,no-resolve
+  # 下载工具直连
+  - PROCESS-NAME,p4pclient,DIRECT
+  - PROCESS-NAME,Thunder,DIRECT
+  - PROCESS-NAME,DownloadService,DIRECT
+  - PROCESS-NAME,qbittorrent,DIRECT
+  - PROCESS-NAME,Transmission,DIRECT
+  - PROCESS-NAME,fdm,DIRECT
+  - PROCESS-NAME,aria2c,DIRECT
+  - PROCESS-NAME,Folx,DIRECT
+  - PROCESS-NAME,NetTransport,DIRECT
+  - PROCESS-NAME,uTorrent,DIRECT
+  - PROCESS-NAME,WebTorrent,DIRECT
+
+  # 最终匹配：所有未被上述规则匹配的流量都交给 🚀 节点选择 组
+  - MATCH,🚀 节点选择
+
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
+
+rule-providers:
+  speedtest:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/speedtest.yaml
+  github:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/github.yaml
+  telegram:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/telegram.yaml
+  youtube:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/youtube.yaml
+  google:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/google.yaml
+  twitter:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/twitter.yaml
+  instagram:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/instagram.yaml
+  facebook:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/facebook.yaml
+  steam:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/steam.yaml
+  steam@cn:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/steam@cn.yaml
+  microsoft:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/microsoft.yaml
+  microsoft@cn:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/microsoft@cn.yaml
+  xbox:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/xbox.yaml
+
+  # 局域网   
+  Lan: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Lan.list
+
+  # 广告拦截
+  Reject: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Reject.list
+
+  # 苹果服务
+  Apple: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Apple.list
+  AppleProxy: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleProxy.list
+  
+  # 微软服务 
+  Microsoft: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Microsoft.list
+  OneDrive: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/OneDrive.list
+  Github: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Github.list
+
+  # 谷歌服务
+  Youtube: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/YouTube.list
+  Google: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Google.list
+
+  # 电报消息
+  Telegram: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Telegram.list
+
+  # 推特消息
+  Twitter: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Twitter.list
+
+  # AI平台
+  AI: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/AI.list
+  direct-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  respect-rules: true
+
+proxies: ~
+
+proxy-providers:
+
+proxy-groups:
+
+  - name: Netflix
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Netflix.png
+    type: select
+    proxies: *proxies
+
+  - name: YouTube
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/YouTube.png
+    type: select
+    proxies: *proxies
+
+  - name: Speedtest
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Speedtest.png
+    type: select
+    proxies: *proxies
+
+  - name: Microsoft
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Microsoft.png
+    type: select
+    proxies: *proxies
+
+  - name: Google
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Google.png
+    type: select
+    proxies: *proxies
+
+  - name: Telegram
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Telegram.png
+    type: select
+    proxies: *proxies
+
+  - name: AI
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/mini/Bot.png
+    type: select
+    proxies: *proxies
+
+  - name: 默认
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Final.png
+    type: select
+    proxies:
+      - 选择代理
+      - DIRECT
+
+  # 基于地区分组（使用参考格式并根据实际调整）
+  - name: 自动选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Proxy.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 全球
+
+  - name: HK 香港
+    filter: "港|🇭🇰|HK|(?i)Hong"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Hong_Kong.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 香港
+
+  - name: TW 台湾
+    filter: "台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Taiwan.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 台湾
+
+  - name: SG 新加坡
+    filter: "新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Singapore.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 新加坡
+
+  - name: JP 日本
+    filter: "日|🇯🇵|东京|JP|(?i)Japan"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Japan.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 日本
+
+  - name: US 美国
+    filter: "美|🇺🇲|US|(?i)States|American"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/United_States.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 美国
+
+  - name: UK 英国
+    filter: "英|🇬🇧|UK|(?i)Britain|England"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/United_Kingdom.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 英国
+
+  - name: KR 韩国
+    filter: "韩|🇰🇷|KR|(?i)Korea"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Korea.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 韩国
+
+  - name: DE 德国
+    filter: "德|🇩🇪|DE|(?i)Germany"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Germany.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 德国
+
+  - name: IN 印度
+    filter: "印|🇮🇳|IN|(?i)India"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/India.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 印度
+
+  - name: RU 俄罗斯
+    filter: "俄|🇷🇺|RU|(?i)Russia"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/mini/Russia.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    use: 
+      - 俄罗斯
+
+
+rules:
+  - DOMAIN-KEYWORD,quic,REJECT
+
+  # Netflix
+  - RULE-SET,netflix,Netflix
+  # Disney+
+  - RULE-SET,disney,Disney+
+  # Spotify
+  - RULE-SET,spotify,Spotify
+  # Speedtest
+  - RULE-SET,speedtest,Speedtest
+  # GitHub
+  - RULE-SET,github,选择代理
+  # Telegram
+  - IP-ASN,62014,选择代理,no-resolve
+  - IP-ASN,59930,选择代理,no-resolve
+  - IP-ASN,44907,选择代理,no-resolve
+  - IP-ASN,211157,选择代理,no-resolve
+  - PROCESS-NAME,Telegram.exe,选择代理
+  - PROCESS-NAME,Telegram,选择代理
+  - RULE-SET,telegram,选择代理
+  # YouTube
+  - RULE-SET,youtube,YouTube
+  # Google
+  - RULE-SET,google,选择代理
+  # Twitter
+  - RULE-SET,twitter,选择代理
+  - DOMAIN-SUFFIX,tapbots.com,选择代理
+  # Instagram
+  - RULE-SET,instagram,选择代理
+  # Facebook
+  - RULE-SET,facebook,选择代理
+  # Steam
+  - RULE-SET,steam@cn,DIRECT
+  - RULE-SET,steam,选择代理
+  # Apple LBS
+  - DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  # Apple OCSP
+  - PROCESS-NAME,trustd,选择代理
+  # Microsoft
+  - RULE-SET,microsoft@cn,DIRECT
+  - RULE-SET,microsoft,选择代理
+  - RULE-SET,xbox,选择代理
+  # common proxy utils
+  - PROCESS-NAME,v2ray,DIRECT
+  - PROCESS-NAME,Surge,DIRECT
+  - PROCESS-NAME,ss-local,DIRECT
+  - PROCESS-NAME,privoxy,DIRECT
+  - PROCESS-NAME,trojan,DIRECT
+  - PROCESS-NAME,trojan-go,DIRECT
+  - PROCESS-NAME,naive,DIRECT
+  - PROCESS-NAME,CloudflareWARP,DIRECT
+  - PROCESS-NAME,Cloudflare WARP,DIRECT
+  - IP-CIDR,162.159.193.0/24,DIRECT,no-resolve
+  - PROCESS-NAME,p4pclient,DIRECT
+  - PROCESS-NAME,Thunder,DIRECT
+  - PROCESS-NAME,DownloadService,DIRECT
+  - PROCESS-NAME,qbittorrent,DIRECT
+  - PROCESS-NAME,Transmission,DIRECT
+  - PROCESS-NAME,fdm,DIRECT
+  - PROCESS-NAME,aria2c,DIRECT
+  - PROCESS-NAME,Folx,DIRECT
+  - PROCESS-NAME,NetTransport,DIRECT
+  - PROCESS-NAME,uTorrent,DIRECT
+  - PROCESS-NAME,WebTorrent,DIRECT
+
+  # 局域网
+  - RULE-SET,Lan,DIRECT
+
+  # 广告拦截
+  - RULE-SET,Reject,REJECT
+
+  # 苹果服务
+  - RULE-SET,Apple,DIRECT
+  - RULE-SET,AppleProxy,选择代理
+
+  # 微软服务
+  - RULE-SET,Microsoft,DIRECT
+  - RULE-SET,OneDrive,选择代理
+
+  # 谷歌服务
+  - RULE-SET,Youtube,YouTube
+  - RULE-SET,Google,选择代理
+
+  # 电报消息
+  - RULE-SET,Telegram,选择代理
+
+  # 推特消息
+  - RULE-SET,Twitter,选择代理
+
+  # AI平台
+  - RULE-SET,AI,选择代理
+
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,默认
+
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
+
+rule-providers:
+  speedtest:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/speedtest.yaml
+  github:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/github.yaml
+  telegram:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/telegram.yaml
+  youtube:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/youtube.yaml
+  google:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/google.yaml
+  twitter:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/twitter.yaml
+  instagram:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/instagram.yaml
+  facebook:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/facebook.yaml
+  steam:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/steam.yaml
+  steam@cn:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/steam@cn.yaml
+  microsoft:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/microsoft.yaml
+  microsoft@cn:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/microsoft@cn.yaml
+  xbox:
+    type: http
+    behavior: domain
+    interval: 86400
+    url: https://rules.kr328.app/xbox.yaml
+
+  # 局域网   
+  Lan: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Lan.list
+
+  # 广告拦截
+  Reject: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Reject.list
+
+  # 苹果服务
+  Apple: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Apple.list
+  AppleProxy: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/AppleProxy.list
+  
+  # 微软服务 
+  Microsoft: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Microsoft.list
+  OneDrive: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/OneDrive.list
+  Github: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Github.list
+
+  # 谷歌服务
+  Youtube: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/YouTube.list
+  Google: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Google.list
+
+  # 电报消息
+  Telegram: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Telegram.list
+
+  # 推特消息
+  Twitter: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/Twitter.list
+
+  # AI平台
+  AI: 
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://github.com/Repcz/Tool/raw/X/Stash/Rules/AI.list
