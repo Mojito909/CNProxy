@@ -78,7 +78,7 @@ proxy-groups:
   - {name: 全球直连, type: select, proxies: [DIRECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Direct.png }
   - {name: 广告拦截, type: select, proxies: [REJECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Reject.png }
   - {name: 应用净化, type: select, proxies: [REJECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png }
-  - {name: 漏网之鱼, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Final.png }
+  - {name: 漏网之鱼, type: select, proxies: [节点选择,全球节点, 香港节点,美节点,狮节点城节点, 日本节点,台湾节点, DIRECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Final.png }
 
 #节点分组
   - {name: 香港节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "港|HK|(?i)Hong", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Hong_Kong.png }
@@ -377,7 +377,7 @@ rules:
 # 苹果服务
   - RULE-SET,Apple,苹果服务
 # Apple更新拦截
-  - RULE-SET,AppleUpdate,更新拦截
+  - RULE-SET,AppleUpdate,广告拦截
 # 电报消息
   - RULE-SET,Telegram,电报消息
 # 游戏平台
