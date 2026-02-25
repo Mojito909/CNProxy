@@ -1,0 +1,150 @@
+# Clash Party / MihomoParty 覆写文件
+# 该配置为完全符合 Clash/Mihomo 架构的规则配置覆写文件
+
+# ==========================================
+# DNS 防泄露与分流配置 (Clash Meta 标准)
+# ==========================================
+dns:
+  enable: true
+  prefer-h3: true        # 优先使用 HTTP/3 加速 DoH 查询
+  ipv6: false
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  fake-ip-filter:
+    - '*'
+    - '+.lan'
+    - '+.local'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    # 游戏及 STUN 防代理特征过滤
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+    - '*.n.n.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - 'xbox.*.*.microsoft.com'
+    - '*.*.xboxlive.com'
+    - 'WORKGROUP'
+  # 用于解析 nameserver/fallback 中的 DoH/DoT 域名本身
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  # 国内域名 DNS（nameserver 仅走国内）
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  # 境外域名 DNS —— 核心防泄露配置
+  # 当 nameserver 返回非中国 IP 时，自动改用 fallback 的结果
+  fallback:
+    - https://dns.cloudflare.com/dns-query
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+  fallback-filter:
+    geoip: true           # 非 CN IP 触发 fallback
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4       # 保留地址段视为污染，触发 fallback
+  # 基于 geosite 的精确分流（优先级高于 fallback-filter）
+  nameserver-policy:
+    "geosite:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+    "geosite:geolocation-!cn":
+      - https://dns.cloudflare.com/dns-query
+      - tls://1.1.1.1
+      - tls://1.0.0.1
+
+# ==========================================
+# 代理组配置 (源自 Moli 配置)
+# ==========================================
+proxy-groups:
+#分流分组
+  - {name: 海外服务, type: select, proxies: [全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点],           icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Verge.png }
+  - {name: 微软服务, type: select, proxies: [全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT],   icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Microsoft.png }
+  - {name: 谷歌服务, type: select, proxies: [全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点],           icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Google_Search.png }
+  - {name: 电报消息, type: select, proxies: [全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点],           icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Telegram_X.png }
+  - {name: 人工智能, type: select, proxies: [全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点],           icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/OpenAI.png }
+
+  - {name: 全国直连, type: select, proxies: [DIRECT],                                                       icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Direct.png }
+  - {name: 兜底分流, type: select, proxies: [全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT],   icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Final.png }
+  - {name: 广告拦截, type: select, proxies: [REJECT],                                                       icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Reject.png }
+
+#节点分组
+  - {name: 全球节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Urltest.png }
+  - {name: 香港节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "港|HK|(?i)Hong", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Hong_Kong.png }             
+  - {name: 日本节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "日|东京|JP|(?i)Japan", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Japan.png }
+  - {name: 台湾节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "台|湾|TW|(?i)Taiwan", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Taiwan.png }
+  - {name: 美国节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "美|US|(?i)States|American", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/United_States.png }
+  - {name: 狮城节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "新|坡|SG|(?i)Singapore", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Singapore.png }
+
+#全局模式
+  - {name: GLOBAL,  type: select, proxies: [全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点],            icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Global.png }
+
+# ==========================================
+# 规则提供者 (源自 Moli 配置)
+# ==========================================
+rule-providers:
+  Google:       {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/Google.list,       path: ./Ruleset/Google.list       }
+  # 已替换为指定 YouTube 源
+  YouTube:      {behavior: classical, interval: 86400, format: text, type: http, url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list", path: ./Ruleset/YouTube.list}
+  Telegram:     {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/Telegram.list,     path: ./Ruleset/Telegram.list     } 
+  Steam:        {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/Steam.list,        path: ./Ruleset/Steam.list        }
+  AI:           {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/AI.list,           path: ./Ruleset/AI.list           }
+  Spotify:      {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/Spotify.list,      path: ./Ruleset/Spotify.list      }
+  PrimeVideo:   {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/PrimeVideo.list,   path: ./Ruleset/PrimeVideo.list   }
+  # 已替换为指定 OneDrive 和 Microsoft 源
+  OneDrive:     {behavior: classical, interval: 86400, format: text, type: http, url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list", path: ./Ruleset/OneDrive.list}
+  Microsoft:    {behavior: classical, interval: 86400, format: text, type: http, url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list", path: ./Ruleset/Microsoft.list}
+  Github:       {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/GitHub.list,       path: ./Ruleset/GitHub.list       }
+  Lan:          {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/Lan.list,          path: ./Ruleset/Lan.list          }
+  ProxyGFW:     {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/ProxyGFW.list,     path: ./Ruleset/ProxyGFW.list     }
+  China:        {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/ChinaDomain.list,  path: ./Ruleset/ChinaDomain.list  }
+  TeamViewer:   {behavior: classical, interval: 86400, format: text, type: http, url: https://github.com/Moli-X/Tool/raw/X/Clash/Rules/TeamViewer.list,   path: ./Ruleset/TeamViewer.list   }
+  BanProgramAD1: {behavior: classical, interval: 86400, format: text, type: http, url: https://raw.githubusercontent.com/zsokami/ACL4SSR/main/BanProgramAD1.list,                            path: ./rules/BanProgramAD1.list  }
+  BanAD:         {behavior: classical, interval: 86400, format: text, type: http, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list,                               path: ./rules/BanAD.list          }
+  BanProgramAD:  {behavior: classical, interval: 86400, format: text, type: http, url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list,                        path: ./rules/BanProgramAD.list   }
+
+  # ---------- 新增特殊扩展配置 ----------
+  ChatGPT:      {behavior: classical, interval: 86400, format: text, type: http, url: "https://raw.githubusercontent.com/Wyatt323/openclash-rules/main/rules/chatgpt.list", path: ./Ruleset/ChatGPT.list}
+  Bing:         {behavior: classical, interval: 86400, format: text, type: http, url: "https://raw.githubusercontent.com/Wyatt323/openclash-rules/main/rules/bing.list", path: ./Ruleset/Bing.list}
+  Gemini:       {behavior: classical, interval: 86400, format: yaml, type: http, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml", path: ./Ruleset/Gemini.yaml}
+  Copilot:      {behavior: classical, interval: 86400, format: yaml, type: http, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml", path: ./Ruleset/Copilot.yaml}
+  OpenAI:       {behavior: classical, interval: 86400, format: yaml, type: http, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAl/OpenAl.yaml", path: ./Ruleset/OpenAI.yaml}
+
+  
+
+# ==========================================
+# 分流规则
+# ==========================================
+rules:
+# 广告拦截 (优先匹配)
+  - RULE-SET,BanProgramAD1,广告拦截
+  - RULE-SET,BanAD,广告拦截
+  - RULE-SET,BanProgramAD,广告拦截
+# 小分流
+  - RULE-SET,AI,人工智能
+  - RULE-SET,ChatGPT,人工智能
+  - RULE-SET,Bing,微软服务
+  - RULE-SET,Gemini,人工智能
+  - RULE-SET,Copilot,人工智能
+  - RULE-SET,OpenAI,人工智能
+  - RULE-SET,YouTube,谷歌服务
+  - RULE-SET,Google,谷歌服务
+  - RULE-SET,Telegram,电报消息
+  - RULE-SET,Spotify,海外服务
+  - RULE-SET,PrimeVideo,海外服务
+  - RULE-SET,TeamViewer,全国直连
+  - RULE-SET,Lan,全国直连
+  - RULE-SET,China,全国直连
+  - RULE-SET,OneDrive,微软服务
+  - RULE-SET,Microsoft,微软服务
+  - GEOSITE,onedrive,微软服务
+  - GEOSITE,github,香港节点
+  - GEOSITE,microsoft,微软服务
+  - GEOSITE,gfw,海外服务
+  - GEOIP,lan,全国直连
+  - GEOIP,CN,全国直连
+  - MATCH,兜底分流
