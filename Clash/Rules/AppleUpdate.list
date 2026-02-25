@@ -1,0 +1,11 @@
+# Apple Update Blocking Rules
+#屏Mac系统更新
+
+DOMAIN-SUFFIX,swscan.apple.com
+DOMAIN-SUFFIX,swdist.apple.com
+DOMAIN-SUFFIX,swcdn.apple.com
+DOMAIN-SUFFIX,mesu.apple.com
+DOMAIN-SUFFIX,gdmf.apple.com
+DOMAIN-SUFFIX,xp.apple.com
+DOMAIN-SUFFIX,updates.cdn-apple.com
+DOMAIN-KEYWORD,softwareupdate

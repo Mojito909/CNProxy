@@ -305,6 +305,12 @@ rule-providers:
     interval: 86400
     format: text
     type: http
+  AppleUpdate:
+    path: ./Rules/AppleUpdate.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: file
 
   # ---------- AI扩展配置 ----------
   ChatGPT:
@@ -369,6 +375,8 @@ rules:
   - RULE-SET,Microsoft,微软服务
 # 苹果服务
   - RULE-SET,Apple,苹果服务
+# Apple更新拦截
+  - RULE-SET,AppleUpdate,更新拦截
 # 电报消息
   - RULE-SET,Telegram,电报消息
 # 游戏平台
