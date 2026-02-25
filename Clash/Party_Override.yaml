@@ -306,11 +306,12 @@ rule-providers:
     format: text
     type: http
   AppleUpdate:
-    path: ./Rules/AppleUpdate.list
+    url: https://raw.githubusercontent.com/Mojito909/CNProxy/refs/heads/main/Clash/Rules/AppleUpdate.list
+    path: ./ruleset/AppleUpdate.list
     behavior: classical
     interval: 86400
     format: text
-    type: file
+    type: http
 
   # ---------- AI扩展配置 ----------
   ChatGPT:
