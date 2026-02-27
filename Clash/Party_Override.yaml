@@ -1,87 +1,84 @@
-# Clash Party / MihomoParty 覆写文件
-# 该配置为完全符合 Clash/Mihomo 架构的规则配置覆写文件
+# Clash Party / MihomoParty 覆写文件（防 DNS/WebRTC 泄露优化版）
 
-# ==========================================
-# DNS 终极防泄露与分流配置 (彻底阻断 WebRTC 与本地查询)
-# ==========================================
+ipv6: false
+mode: rule
+
 dns:
   enable: true
-  ipv6: true
+  listen: 0.0.0.0:1053
+  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: false
   use-system-hosts: false
-  
-  # 拦截 STUN 协议，防止 WebRTC 穿透泄露真实 IP
+  respect-rules: true
+
   fake-ip-filter:
     - geosite:private
     - geosite:category-ntp
     - '+.stun.*.*'
     - '+.stun.*.*.*'
     - '+.stun.*.*.*.*'
-  
-  # 补充基础直连 DNS，防止系统在完全断网或刚启动时发生死锁
+
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
 
-  # 【核心防泄露】强制境外的 DNS 查询请求走代理节点
-  nameserver:
-    - https://1.1.1.1/dns-query#节点选择
-    - https://8.8.8.8/dns-query#节点选择
-  
-  # 节点解析 DNS：专门用于解析你的代理服务器(节点)的域名
   proxy-server-nameserver:
-    - https://223.5.5.5/dns-query
-    - https://223.6.6.6/dns-query
-  
-  # 域名策略：国内域名使用国内 DoH 解析，保证 CDN 亲和力
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
+  nameserver:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+
   nameserver-policy:
-    "geosite:cn,private": 
+    "geosite:cn":
       - https://223.5.5.5/dns-query
       - https://223.6.6.6/dns-query
-      
-  # 核心防泄露：优先匹配分流规则，命中代理的规则不再进行本地 DNS 解析
-  respect-rules: true
+    "geosite:private":
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
 
-# ==========================================
-# 代理组配置
-# ==========================================
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  endpoint-independent-nat: true
+  dns-hijack:
+    - any:53
+
 proxy-groups:
-#分流分组
-  - {name: 节点选择, type: select, proxies: [自动选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png }
-  - {name: 自动选择, type: url-test, include-all: true, interval: 600, tolerance: 50, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png }
-  - {name: 电报消息, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Telegram_X.png }
-  - {name: 人工智能, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png }
-  - {name: 油管视频, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png }
-  - {name: 哔哩港台, type: select, proxies: [台湾节点, 香港节点, 节点选择, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png }
-  - {name: 哔哩哔哩, type: select, proxies: [全球直连, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png }
-  - {name: 国外媒体, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png }
-  - {name: 国内媒体, type: select, proxies: [全球直连, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png }
-  - {name: 谷歌服务, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Google_Search.png }
-  - {name: 微软Bing, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/bing.png }
-  - {name: 微软云盘, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png }
-  - {name: 微软服务, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png }
-  - {name: 苹果服务, type: select, proxies: [全球直连, 节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Dark/Apple.png }
-  - {name: 全球直连, type: select, proxies: [DIRECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Direct.png }
-  - {name: 广告拦截, type: select, proxies: [REJECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Reject.png }
-  - {name: 应用净化, type: select, proxies: [REJECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png }
-  - {name: 漏网之鱼, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Final.png }
+  - {name: 节点选择, type: select, proxies: [自动选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png}
+  - {name: 自动选择, type: url-test, include-all: true, interval: 600, tolerance: 50, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png}
+  - {name: 电报消息, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Telegram_X.png}
+  - {name: 人工智能, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png}
+  - {name: 油管视频, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png}
+  - {name: 哔哩港台, type: select, proxies: [台湾节点, 香港节点, 节点选择, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png}
+  - {name: 哔哩哔哩, type: select, proxies: [全球直连, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png}
+  - {name: 国外媒体, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png}
+  - {name: 国内媒体, type: select, proxies: [全球直连, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/DomesticMedia.png}
+  - {name: 谷歌服务, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Google_Search.png}
+  - {name: 微软Bing, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/bing.png}
+  - {name: 微软云盘, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png}
+  - {name: 微软服务, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png}
+  - {name: 苹果服务, type: select, proxies: [全球直连, 节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Dark/Apple.png}
+  - {name: 全球直连, type: select, proxies: [DIRECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Direct.png}
+  - {name: 广告拦截, type: select, proxies: [REJECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Reject.png}
+  - {name: 应用净化, type: select, proxies: [REJECT], icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png}
+  - {name: 漏网之鱼, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点, DIRECT], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Final.png}
 
-#节点分组
-  - {name: 香港节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "港|HK|(?i)Hong", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Hong_Kong.png }
-  - {name: 日本节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "日|东京|JP|(?i)Japan", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Japan.png }
-  - {name: 美国节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "美|US|(?i)States|American", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/United_States.png }
-  - {name: 台湾节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "台|湾|TW|(?i)Taiwan", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Taiwan.png }
-  - {name: 狮城节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "新|坡|SG|(?i)Singapore", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Singapore.png }
-  - {name: 全球节点, type: url-test, include-all: true, interval: 600, tolerance: 50, icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Urltest.png }
+  - {name: 香港节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "港|HK|(?i)Hong", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Hong_Kong.png}
+  - {name: 日本节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "日|东京|JP|(?i)Japan", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Japan.png}
+  - {name: 美国节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "美|US|(?i)States|American", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/United_States.png}
+  - {name: 台湾节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "台|湾|TW|(?i)Taiwan", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Taiwan.png}
+  - {name: 狮城节点, type: url-test, include-all: true, interval: 600, tolerance: 50, filter: "新|坡|SG|(?i)Singapore", icon: https://github.com/Moli-X/Tool/raw/X/Icon/Flag/Pixel144/Singapore.png}
+  - {name: 全球节点, type: url-test, include-all: true, interval: 600, tolerance: 50, icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Urltest.png}
 
-#全局模式
-  - {name: GLOBAL, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Global.png }
+  - {name: GLOBAL, type: select, proxies: [节点选择, 全球节点, 香港节点, 美国节点, 狮城节点, 日本节点, 台湾节点], icon: https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/Global.png}
 
-# ==========================================
-# 规则提供者 (全 CDN 加速与 behavior 修正)
-# ==========================================
 rule-providers:
   LocalAreaNetwork:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
@@ -275,21 +272,14 @@ rule-providers:
   ChinaDomain:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
     path: ./ruleset/ChinaDomain.list
-    behavior: classical
+    behavior: domain
     interval: 86400
     format: text
     type: http
   ChinaCompanyIp:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
     path: ./ruleset/ChinaCompanyIp.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Download:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
-    path: ./ruleset/Download.list
-    behavior: classical
+    behavior: ipcidr
     interval: 86400
     format: text
     type: http
@@ -301,87 +291,63 @@ rule-providers:
     format: text
     type: http
   ChatGPT:
-    url: "https://testingcf.jsdelivr.net/gh/Wyatt323/openclash-rules@main/rules/chatgpt.list"
+    url: https://testingcf.jsdelivr.net/gh/Wyatt323/openclash-rules@main/rules/chatgpt.list
     path: ./ruleset/ChatGPT.list
     behavior: classical
     interval: 86400
     format: text
     type: http
   Gemini:
-    url: "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml"
+    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml
     path: ./ruleset/Gemini.yaml
     behavior: classical
     interval: 86400
     format: yaml
     type: http
   Copilot:
-    url: "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot.yaml"
+    url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot.yaml
     path: ./ruleset/Copilot.yaml
     behavior: classical
     interval: 86400
     format: yaml
     type: http
 
-# ==========================================
-# 分流规则
-# ==========================================
 rules:
-# 终极防泄露：拦截 STUN 打洞，强制测漏网站走代理
   - DOMAIN-KEYWORD,stun,REJECT
   - DOMAIN-SUFFIX,ipleak.net,节点选择
-# 本地局域网
   - RULE-SET,LocalAreaNetwork,全球直连
-# 去广告白名单
   - RULE-SET,UnBan,全球直连
-# 广告拦截
   - RULE-SET,BanAD,广告拦截
-# 应用净化
   - RULE-SET,BanProgramAD,应用净化
-# 人工智能
   - RULE-SET,OpenAi,人工智能
   - RULE-SET,ChatGPT,人工智能
   - RULE-SET,Gemini,人工智能
   - RULE-SET,Copilot,人工智能
-# 油管视频
   - RULE-SET,YouTube,油管视频
-# 哔哩哔哩
   - RULE-SET,BilibiliHMT,哔哩港台
   - RULE-SET,Bilibili,哔哩哔哩
-# 国外媒体
   - RULE-SET,Netflix,国外媒体
   - RULE-SET,Bahamut,国外媒体
   - RULE-SET,ProxyMedia,国外媒体
-# 国内媒体
   - RULE-SET,NetEaseMusic,国内媒体
   - RULE-SET,ChinaMedia,国内媒体
-# 谷歌服务
   - RULE-SET,GoogleFCM,谷歌服务
   - RULE-SET,GoogleCN,全球直连
-# 微软Bing
   - RULE-SET,Bing,微软Bing
-# 微软云盘
   - RULE-SET,OneDrive,微软云盘
-# 微软服务
   - RULE-SET,Microsoft,微软服务
-# 苹果服务
-  - RULE-SET,Apple,苹果服务
-# Apple更新拦截
   - RULE-SET,AppleUpdate,广告拦截
-# 电报消息
+  - RULE-SET,Apple,苹果服务
   - RULE-SET,Telegram,电报消息
-# 游戏平台
   - RULE-SET,Epic,国外媒体
   - RULE-SET,Origin,国外媒体
   - RULE-SET,Sony,国外媒体
+  - RULE-SET,SteamCN,全球直连
   - RULE-SET,Steam,国外媒体
   - RULE-SET,Nintendo,国外媒体
-  - RULE-SET,SteamCN,全球直连
-# 代理与直连
   - RULE-SET,ProxyGFWlist,节点选择
-  - RULE-SET,Download,全球直连
   - RULE-SET,ChinaDomain,全球直连
   - RULE-SET,ChinaCompanyIp,全球直连
-# 兜底规则
   - GEOIP,lan,全球直连
   - GEOIP,CN,全球直连
   - MATCH,漏网之鱼
