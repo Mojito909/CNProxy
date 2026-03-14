@@ -109,11 +109,11 @@ const ruleProviders = {
     "adrules": {
         "type": "http",
         "format": "text",
-        "behavior": "domain",
+        "behavior": "classical",
         "interval": 86400,
-        "url": "https://adrules.top/adrules_domainset.txt",
+        "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list",
         "path": "./ruleset/adrules.list",
-    },                                                          // AdRules 广告拦截
+    },                                                          // ACL4SSR 广告拦截
 };
 
 
