@@ -9,7 +9,7 @@
   - `Loon/Rules/Bank.list` - 银行直连的 Loon 格式域后缀分流文件。
 - **Clash (Meta / Party) 专属配置**：
   - `Clash/Party_Override.yaml` - 专用于 Clash Party、Clash Verge 等 Meta 内核客户端的 YAML 覆写模板，集成了自动节点分组、防 DNS 泄露策略、及各路流媒体规则。
-  
+  - `Clash/clash防泄露.js` - Clash Verge 脚本覆写文件，用于注入 DNS 防泄露配置、自定义规则和代理组；脚本来源于 [Arcticn](https://github.com/Arcticn)，已在此基础上进行修改。
 
 ## 功能特点
 
@@ -27,6 +27,7 @@
 - [Koolson](https://github.com/Koolson) - 提供了Qure图标资源
 - [Orz-3](https://github.com/Orz-3) - 提供了mini图标资源
 - [Peng-YM](https://github.com/Peng-YM) - 提供了Sub-Store解析器
+- [Arcticn](https://github.com/Arcticn) - 提供了 Clash 防泄露覆写脚本的原始版本
 
 
 ## 许可证
