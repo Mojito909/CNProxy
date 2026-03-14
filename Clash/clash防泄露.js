@@ -115,6 +115,14 @@ const ruleProviders = {
         "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list",
         "path": "./ruleset/adrules.list",
     },                                                          // ACL4SSR 广告拦截
+    "ChinaDomain": {
+        "type": "http",
+        "format": "text",
+        "behavior": "classical",
+        "interval": 86400,
+        "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list",
+        "path": "./ruleset/ChinaDomain.list",
+    },                                                          // 国内直连域名
 };
 
 
@@ -152,6 +160,7 @@ const rules = [
     "RULE-SET,private,全局直连",
     "RULE-SET,reject,广告过滤",
     "RULE-SET,adrules,广告过滤",
+    "RULE-SET,ChinaDomain,全局直连", // 国内直连域名，避免走代理
     "RULE-SET,microsoft,微软服务",
     "RULE-SET,AppleUpdate,全局拦截",  // 拦截 Apple 系统更新
     "RULE-SET,icloud,苹果服务",
