@@ -123,14 +123,7 @@ const ruleProviders = {
         "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list",
         "path": "./ruleset/ChinaDomain.list",
     },                                                          // 国内直连域名
-    "ChinaIp": {
-        "type": "http",
-        "format": "text",
-        "behavior": "ipcidr",
-        "interval": 86400,
-        "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaIp.list",
-        "path": "./ruleset/ChinaIp.list",
-    },                                                          // 中国 IPv4 地址段
+
     "ChinaCompanyIp": {
         "type": "http",
         "format": "text",
@@ -170,7 +163,7 @@ const rules = [
     "RULE-SET,adrules,广告过滤",
     "RULE-SET,ChinaDomain,全局直连", // 国内直连域名，避免走代理
     "RULE-SET,ChinaCompanyIp,全局直连", // 国内云服务商 IP，避免走代理
-    "RULE-SET,ChinaIp,全局直连", // 国内 IPv4 段，避免走代理
+
     "RULE-SET,microsoft,微软服务",
     "RULE-SET,AppleUpdate,全局拦截",  // 拦截 Apple 系统更新
     "RULE-SET,icloud,苹果服务",
