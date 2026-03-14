@@ -8,7 +8,7 @@
   - `Loon/Loon.conf` - Loon 的主配置文件，包含了完整分流、策略组等。
   - `Loon/Rules/Bank.list` - 银行直连的 Loon 格式域后缀分流文件。
 - **Clash (Meta / Party) 专属配置**：
-  - `Clash/Party_Override.yaml` - 专用于 Clash Party、Clash Verge 等 Meta 内核客户端的 YAML 覆写模板，集成了自动节点分组、防 DNS 泄露策略、及各路流媒体规则。
+  - `Clash/Party_Override.yaml` - 专用于 Clash Party、Clash Verge 等 Meta 内核客户端的 YAML 覆写模板，集成了自动节点分组、防 DNS 泄露策略、及各路流媒体规则（目前已弃用，后续再优化，请使用 `clash防泄露.js`）。
   - `Clash/clash防泄露.js` - Clash Verge 脚本覆写文件，用于注入 DNS 防泄露配置、自定义规则和代理组；脚本来源于 [Arcticn](https://github.com/Arcticn)，已在此基础上进行修改。
 
 ## 功能特点
@@ -16,7 +16,7 @@
 1. 智能分流：根据域名和IP地址自动选择最佳网络路径
 2. 节点策略：支持多种代理策略组，包括自动选择和手动选择
 3. 地域优化：针对不同地区提供专门的节点组
-4. 银行直连：确保银行相关流量直接连接，提高访问速度和安全性
+4. 银行直连：确保银行相关流量直接连接，提高访问速度和安全性（仅用于手机端）
 
 ## 感谢
 
