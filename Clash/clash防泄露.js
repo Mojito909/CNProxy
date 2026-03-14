@@ -74,29 +74,29 @@ const metaCubeX = (name) => ({
 
 const ruleProviders = {
     // Loyalsoldier — 域名类
-    "reject":      loyalsoldier("reject",      "domain"),  // 广告/恶意域名
-    "icloud":      loyalsoldier("icloud",      "domain"),  // iCloud 域名
-    "apple":       loyalsoldier("apple",       "domain"),  // Apple 域名
-    "google":      loyalsoldier("google",      "domain"),  // Google 域名
-    "proxy":       loyalsoldier("proxy",       "domain"),  // 代理域名（需翻墙）
-    "direct":      loyalsoldier("direct",      "domain"),  // 直连域名
-    "private":     loyalsoldier("private",     "domain"),  // 私有域名（局域网）
-    "gfw":         loyalsoldier("gfw",         "domain"),  // GFW 封锁域名
-    "tld-not-cn":  loyalsoldier("tld-not-cn",  "domain"),  // 非 .cn 顶级域名
+    "reject": loyalsoldier("reject", "domain"),  // 广告/恶意域名
+    "icloud": loyalsoldier("icloud", "domain"),  // iCloud 域名
+    "apple": loyalsoldier("apple", "domain"),  // Apple 域名
+    "google": loyalsoldier("google", "domain"),  // Google 域名
+    "proxy": loyalsoldier("proxy", "domain"),  // 代理域名（需翻墙）
+    "direct": loyalsoldier("direct", "domain"),  // 直连域名
+    "private": loyalsoldier("private", "domain"),  // 私有域名（局域网）
+    "gfw": loyalsoldier("gfw", "domain"),  // GFW 封锁域名
+    "tld-not-cn": loyalsoldier("tld-not-cn", "domain"),  // 非 .cn 顶级域名
     // Loyalsoldier — IP 段
     "telegramcidr": loyalsoldier("telegramcidr", "ipcidr"), // Telegram IP 段
-    "cncidr":       loyalsoldier("cncidr",       "ipcidr"), // 中国大陆 IP 段
-    "lancidr":      loyalsoldier("lancidr",      "ipcidr"), // 局域网 IP 段
+    "cncidr": loyalsoldier("cncidr", "ipcidr"), // 中国大陆 IP 段
+    "lancidr": loyalsoldier("lancidr", "ipcidr"), // 局域网 IP 段
     // Loyalsoldier — 应用程序
     "applications": loyalsoldier("applications", "classical"), // 需直连的应用程序
     // MetaCubeX — 应用服务
-    "openai":        metaCubeX("openai"),        // OpenAI / ChatGPT
-    "pikpak":        metaCubeX("pikpak"),        // PikPak 网盘
-    "anthropic":     metaCubeX("anthropic"),     // Anthropic / Claude
+    "openai": metaCubeX("openai"),        // OpenAI / ChatGPT
+    "pikpak": metaCubeX("pikpak"),        // PikPak 网盘
+    "anthropic": metaCubeX("anthropic"),     // Anthropic / Claude
     "google-gemini": metaCubeX("google-gemini"), // Google Gemini
-    "xai":           metaCubeX("xai"),           // xAI / Grok
-    "perplexity":    metaCubeX("perplexity"),    // Perplexity AI
-    "microsoft":     metaCubeX("microsoft"),     // 微软服务
+    "xai": metaCubeX("xai"),           // xAI / Grok
+    "perplexity": metaCubeX("perplexity"),    // Perplexity AI
+    "microsoft": metaCubeX("microsoft"),     // 微软服务
     // 自定义规则集
     "AppleUpdate": {
         "type": "http",
@@ -248,7 +248,7 @@ const proxyGroupsConfig = [
         "type": "select",
         "proxies": aiProxies,
         "include-all": true,
-        "icon": "https://github.com/Moli-X/Tool/raw/X/Icon/App/Pixel144/PikPak.png",
+        "icon": "https://raw.githubusercontent.com/Mojito909/CNProxy/main/Clash/Icon/PikPak.png",
     },
     {
         ...groupBaseOption,
