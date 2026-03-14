@@ -131,13 +131,6 @@ const ruleProviders = {
 // =============================================================================
 
 const rules = [
-    // 微信直连强规则，防止 DIRECT 建立连接被 GFW 阻断导致 timeout
-    "DOMAIN-SUFFIX,weixin.com,全局直连",
-    "DOMAIN-SUFFIX,wechat.com,全局直连",
-    "DOMAIN-SUFFIX,weixin.qq.com,全局直连",
-    "DOMAIN-KEYWORD,wechat,全局直连",
-    "DOMAIN-KEYWORD,weixin,全局直连",
-
     // 自定义规则
 
     // 自定义规则
