@@ -124,14 +124,7 @@ const ruleProviders = {
         "path": "./ruleset/ChinaDomain.list",
     },                                                          // 国内直连域名
 
-    "ChinaCompanyIp": {
-        "type": "http",
-        "format": "text",
-        "behavior": "ipcidr",
-        "interval": 86400,
-        "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list",
-        "path": "./ruleset/ChinaCompanyIp.list",
-    },                                                          // 中国云服务商 IP 段
+
 };
 
 
@@ -162,7 +155,7 @@ const rules = [
     "RULE-SET,reject,广告过滤",
     "RULE-SET,adrules,广告过滤",
     "RULE-SET,ChinaDomain,全局直连", // 国内直连域名，避免走代理
-    "RULE-SET,ChinaCompanyIp,全局直连", // 国内云服务商 IP，避免走代理
+
 
     "RULE-SET,microsoft,微软服务",
     "RULE-SET,AppleUpdate,全局拦截",  // 拦截 Apple 系统更新
