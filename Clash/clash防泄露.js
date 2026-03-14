@@ -34,6 +34,7 @@ const dnsConfig = {
         "+.msftconnecttest.com", "+.msftncsi.com",
         // QQ / 微信快速登录检测
         "localhost.ptlogin2.qq.com", "localhost.sec.qq.com",
+                "+.weixin.com", "+.wechat.com", "+.weixin.qq.com",
         "localhost.work.weixin.qq.com",
     ],
     "default-nameserver": ["223.5.5.5", "1.2.4.8"],
@@ -122,6 +123,15 @@ const ruleProviders = {
 // =============================================================================
 
 const rules = [
+    // 微信直连强规则，防止 DIRECT 建立连接被 GFW 阻断导致 timeout
+    "DOMAIN-SUFFIX,weixin.com,全局直连",
+    "DOMAIN-SUFFIX,wechat.com,全局直连",
+    "DOMAIN-SUFFIX,weixin.qq.com,全局直连",
+    "DOMAIN-KEYWORD,wechat,全局直连",
+    "DOMAIN-KEYWORD,weixin,全局直连",
+
+    // 自定义规则
+
     // 自定义规则
     "DOMAIN-SUFFIX,googleapis.cn,模式选择",          // Google 服务
     "DOMAIN-SUFFIX,gstatic.com,模式选择",            // Google 静态资源
