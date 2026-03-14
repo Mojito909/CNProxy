@@ -105,7 +105,15 @@ const ruleProviders = {
         "interval": 86400,
         "url": "https://testingcf.jsdelivr.net/gh/Mojito909/CNProxy@main/Clash/Rules/AppleUpdate.list",
         "path": "./ruleset/AppleUpdate.list",
-    }, // Apple 系统更新（拦截用）
+    },                                                          // Apple 系统更新（拦截用）
+    "adrules": {
+        "type": "http",
+        "format": "text",
+        "behavior": "domain",
+        "interval": 86400,
+        "url": "https://adrules.top/adrules_domainset.txt",
+        "path": "./ruleset/adrules.list",
+    },                                                          // AdRules 广告拦截
 };
 
 
@@ -129,10 +137,11 @@ const rules = [
     "RULE-SET,anthropic,Claude",
     "RULE-SET,pikpak,PikPak",
 
-    // Loyalsoldier 规则集
+    // Loyalsoldier & 广告 规则集
     "RULE-SET,applications,全局直连",
     "RULE-SET,private,全局直连",
     "RULE-SET,reject,广告过滤",
+    "RULE-SET,adrules,广告过滤",
     "RULE-SET,microsoft,微软服务",
     "RULE-SET,AppleUpdate,全局拦截",  // 拦截 Apple 系统更新
     "RULE-SET,icloud,苹果服务",
