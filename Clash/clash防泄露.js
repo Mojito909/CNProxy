@@ -75,29 +75,33 @@ const metaCubeX = (name) => ({
 
 const ruleProviders = {
     // Loyalsoldier — 域名类
-    "reject": loyalsoldier("reject", "domain"),    // 广告/恶意域名
-    "icloud": loyalsoldier("icloud", "domain"),    // iCloud 域名
-    "apple": loyalsoldier("apple", "domain"),    // Apple 域名
-    "google": loyalsoldier("google", "domain"),    // Google 域名
-    "proxy": loyalsoldier("proxy", "domain"),    // 代理域名（需翻墙）
-    "direct": loyalsoldier("direct", "domain"),    // 直连域名
-    "private": loyalsoldier("private", "domain"),    // 私有域名（局域网）
-    "gfw": loyalsoldier("gfw", "domain"),    // GFW 封锁域名
-    "tld-not-cn": loyalsoldier("tld-not-cn", "domain"),    // 非 .cn 顶级域名
+    "reject": loyalsoldier("reject", "domain"),                      // 广告/恶意域名
+    "icloud": loyalsoldier("icloud", "domain"),                      // iCloud 域名
+    "apple": loyalsoldier("apple", "domain"),                        // Apple 域名
+    "google": loyalsoldier("google", "domain"),                      // Google 域名
+    "proxy": loyalsoldier("proxy", "domain"),                        // 代理域名（需翻墙）
+    "direct": loyalsoldier("direct", "domain"),                      // 直连域名
+    "private": loyalsoldier("private", "domain"),                    // 私有域名（局域网）
+    "gfw": loyalsoldier("gfw", "domain"),                            // GFW 封锁域名
+    "tld-not-cn": loyalsoldier("tld-not-cn", "domain"),              // 非 .cn 顶级域名
+
     // Loyalsoldier — IP 段
-    "telegramcidr": loyalsoldier("telegramcidr", "ipcidr"),    // Telegram IP 段
-    "cncidr": loyalsoldier("cncidr", "ipcidr"),    // 中国大陆 IP 段
-    "lancidr": loyalsoldier("lancidr", "ipcidr"),    // 局域网 IP 段
+    "telegramcidr": loyalsoldier("telegramcidr", "ipcidr"),          // Telegram IP 段
+    "cncidr": loyalsoldier("cncidr", "ipcidr"),                      // 中国大陆 IP 段
+    "lancidr": loyalsoldier("lancidr", "ipcidr"),                    // 局域网 IP 段
+
     // Loyalsoldier — 应用程序
-    "applications": loyalsoldier("applications", "classical"), // 需直连的应用程序
+    "applications": loyalsoldier("applications", "classical"),       // 需直连的应用程序
+
     // MetaCubeX — 应用服务
-    "openai": metaCubeX("openai"),                       // OpenAI / ChatGPT
-    "pikpak": metaCubeX("pikpak"),                       // PikPak 网盘
-    "anthropic": metaCubeX("anthropic"),                    // Anthropic / Claude
-    "google-gemini": metaCubeX("google-gemini"),                // Google Gemini
-    "xai": metaCubeX("xai"),                          // xAI / Grok
-    "perplexity": metaCubeX("perplexity"),                   // Perplexity AI
-    "microsoft": metaCubeX("microsoft"),                    // 微软服务
+    "openai": metaCubeX("openai"),                                   // OpenAI / ChatGPT
+    "pikpak": metaCubeX("pikpak"),                                   // PikPak 网盘
+    "anthropic": metaCubeX("anthropic"),                             // Anthropic / Claude
+    "google-gemini": metaCubeX("google-gemini"),                     // Google Gemini
+    "xai": metaCubeX("xai"),                                         // xAI / Grok
+    "perplexity": metaCubeX("perplexity"),                           // Perplexity AI
+    "microsoft": metaCubeX("microsoft"),                             // 微软服务
+
     // 自定义规则集
     "AppleUpdate": {
         "type": "http",
@@ -106,7 +110,7 @@ const ruleProviders = {
         "interval": 86400,
         "url": "https://testingcf.jsdelivr.net/gh/Mojito909/CNProxy@main/Clash/Rules/AppleUpdate.list",
         "path": "./ruleset/AppleUpdate.list",
-    },                                                          // Apple 系统更新（拦截用）
+    },                                                               // Apple 系统更新（拦截用）
     "adrules": {
         "type": "http",
         "format": "text",
@@ -114,7 +118,7 @@ const ruleProviders = {
         "interval": 86400,
         "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list",
         "path": "./ruleset/adrules.list",
-    },                                                          // ACL4SSR 广告拦截
+    },                                                               // ACL4SSR 广告拦截
     "ChinaDomain": {
         "type": "http",
         "format": "text",
@@ -122,9 +126,7 @@ const ruleProviders = {
         "interval": 86400,
         "url": "https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list",
         "path": "./ruleset/ChinaDomain.list",
-    },                                                          // 国内直连域名
-
-
+    },                                                               // 国内直连域名
 };
 
 
@@ -137,7 +139,7 @@ const rules = [
     // 自定义规则
     "DOMAIN-SUFFIX,googleapis.cn,模式选择",          // Google 服务
     "DOMAIN-SUFFIX,gstatic.com,模式选择",            // Google 静态资源
-    "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,模式选择",   // Google Play 下载
+    "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,模式选择",    // Google Play 下载
     "DOMAIN-SUFFIX,github.io,模式选择",              // GitHub Pages
     "DOMAIN,v2rayse.com,模式选择",                   // V2rayse 节点工具
 
@@ -154,11 +156,9 @@ const rules = [
     "RULE-SET,private,全局直连",
     "RULE-SET,reject,广告过滤",
     "RULE-SET,adrules,广告过滤",
-    "RULE-SET,ChinaDomain,全局直连", // 国内直连域名，避免走代理
-
-
+    "RULE-SET,ChinaDomain,全局直连",               // 国内直连域名，避免走代理
     "RULE-SET,microsoft,微软服务",
-    "RULE-SET,AppleUpdate,全局拦截",  // 拦截 Apple 系统更新
+    "RULE-SET,AppleUpdate,全局拦截",               // 拦截 Apple 系统更新
     "RULE-SET,icloud,苹果服务",
     "RULE-SET,apple,苹果服务",
     "RULE-SET,google,谷歌服务",
