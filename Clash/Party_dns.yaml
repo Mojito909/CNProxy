@@ -1,0 +1,543 @@
+# ==================================================
+# Mihomo Party / Clash Verge Rev 覆写文件
+# 目标:
+# 1. 优先解决 DNS 泄露
+# 2. 保留 AI 常用分流
+# 3. 减少界面复杂度，降低排障变量
+#
+# 导入后仍需在客户端确认:
+# - TUN 已开启
+# - Strict Route 已开启
+# - DNS Override / DNS 覆写 已关闭
+# ==================================================
+
+# ------------------------------
+# 锚点: 策略组模板
+# ------------------------------
+GroupSelect: &GroupSelect
+  type: select
+
+GroupAuto: &GroupAuto
+  type: url-test
+  include-all: true
+  interval: 600
+  tolerance: 50
+
+# ------------------------------
+# 锚点: 节点筛选规则
+# ------------------------------
+FilterHK: &FilterHK "港|HK|(?i)Hong"
+FilterJP: &FilterJP "日|东京|JP|(?i)Japan"
+FilterUS: &FilterUS "美|US|(?i)States|American"
+FilterTW: &FilterTW "台|湾|TW|(?i)Taiwan"
+FilterSG: &FilterSG "新|坡|SG|(?i)Singapore"
+
+# ------------------------------
+# 锚点: 规则集模板
+# ------------------------------
+RuleDomain: &RuleDomain
+  type: http
+  behavior: domain
+  format: mrs
+  interval: 86400
+
+RuleIP: &RuleIP
+  type: http
+  behavior: ipcidr
+  format: mrs
+  interval: 86400
+
+# ==================================================
+# 基础设置
+# ==================================================
+ipv6: false
+mode: rule
+find-process-mode: strict
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+# ==================================================
+# 嗅探配置
+# 作用:
+# - 提高纯 IP 连接的域名识别率
+# - 让规则分流与 DNS 映射更稳定
+# ==================================================
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  force-dns-mapping: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 443
+      override-destination: false
+    TLS:
+      ports:
+        - 443
+  skip-domain:
+    - +.push.apple.com
+
+# ==================================================
+# DNS 配置
+# 核心目标: fake-ip + respect-rules + 分离直连/代理 DNS
+# ==================================================
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  prefer-h3: false
+  cache-algorithm: arc
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: false
+  use-system-hosts: false
+  respect-rules: true
+
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - localhost.work.weixin.qq.com
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - geosite:private
+    - geosite:category-ntp
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+
+  default-nameserver:
+    - 223.5.5.5
+    - 1.2.4.8
+
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
+  direct-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  direct-nameserver-follow-policy: false
+
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+    - https://9.9.9.9/dns-query
+    - https://77.88.8.8/dns-query
+
+  nameserver-policy:
+    "geosite:cn":
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
+    "geosite:private":
+      - https://223.5.5.5/dns-query
+      - https://223.6.6.6/dns-query
+
+# ==================================================
+# TUN 配置
+# 核心目标: 接管系统流量，阻止 DNS 旁路
+# ==================================================
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  endpoint-independent-nat: true
+  dns-hijack:
+    - any:53
+
+# ==================================================
+# 策略组
+# ==================================================
+proxy-groups:
+  # ----------------------------
+  # 主入口
+  # ----------------------------
+  - name: 节点选择
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
+    proxies:
+      - 自动选择
+      - 美国节点
+      - 日本节点
+      - 狮城节点
+      - 香港节点
+      - 台湾节点
+      - DIRECT
+
+  - name: 自动选择
+    <<: *GroupAuto
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+
+  # ----------------------------
+  # 服务分流
+  # ----------------------------
+  - name: 人工智能
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 狮城节点
+      - 自动选择
+      - 香港节点
+      - 台湾节点
+
+  - name: 谷歌服务
+    <<: *GroupSelect
+    icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Google_Search.png
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 狮城节点
+      - 自动选择
+      - 香港节点
+      - 台湾节点
+
+  - name: 国外媒体
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
+    proxies:
+      - 自动选择
+      - 美国节点
+      - 日本节点
+      - 狮城节点
+      - 香港节点
+      - 台湾节点
+
+  - name: 油管视频
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+    proxies:
+      - 节点选择
+      - 自动选择
+      - 香港节点
+      - 美国节点
+      - 狮城节点
+      - 日本节点
+      - 台湾节点
+
+  - name: 微软服务
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 狮城节点
+      - 自动选择
+      - 香港节点
+      - 台湾节点
+
+  - name: 微软Bing
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/bing.png
+    proxies:
+      - 自动选择
+      - 全球直连
+
+  - name: 苹果服务
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_2.png
+    proxies:
+      - 自动选择
+      - 节点选择
+      - 全球直连
+
+  - name: 电报消息
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
+    proxies:
+      - 美国节点
+      - 狮城节点
+      - 日本节点
+      - 自动选择
+      - 香港节点
+      - 台湾节点
+
+  # ----------------------------
+  # 控制分流
+  # ----------------------------
+  - name: 全球直连
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png
+    proxies:
+      - DIRECT
+
+  - name: 广告过滤
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Reject.png
+    proxies:
+      - REJECT
+
+  - name: 漏网之鱼
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
+    proxies:
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 狮城节点
+
+  # ----------------------------
+  # 地区节点组
+  # ----------------------------
+  - name: 香港节点
+    <<: *GroupAuto
+    filter: *FilterHK
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png
+
+  - name: 日本节点
+    <<: *GroupAuto
+    filter: *FilterJP
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png
+
+  - name: 美国节点
+    <<: *GroupAuto
+    filter: *FilterUS
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png
+
+  - name: 台湾节点
+    <<: *GroupAuto
+    filter: *FilterTW
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
+
+  - name: 狮城节点
+    <<: *GroupAuto
+    filter: *FilterSG
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png
+
+  - name: GLOBAL
+    <<: *GroupSelect
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png
+    proxies:
+      - 自动选择
+      - 香港节点
+      - 日本节点
+      - 美国节点
+      - 台湾节点
+      - 狮城节点
+
+# ==================================================
+# 规则集
+# ==================================================
+rule-providers:
+  # ----------------------------
+  # 域名规则
+  # ----------------------------
+  Tracking:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Tracking.mrs
+    path: ./ruleset/dns-fixed/Tracking.mrs
+
+  Advertising:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Advertising.mrs
+    path: ./ruleset/dns-fixed/Advertising.mrs
+
+  BanAD:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
+    path: ./ruleset/dns-fixed/BanAD.list
+
+  UnBan:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/UnBan.list
+    path: ./ruleset/dns-fixed/UnBan.list
+
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/LocalAreaNetwork.list
+    path: ./ruleset/dns-fixed/LocalAreaNetwork.list
+
+  AI:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/Ruleset/AiDomain.list
+    path: ./ruleset/dns-fixed/AiDomain.list
+
+  Google:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Google.mrs
+    path: ./ruleset/dns-fixed/Google.mrs
+
+  YouTube:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/YouTube.mrs
+    path: ./ruleset/dns-fixed/YouTube.mrs
+
+  Bing:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list
+    path: ./ruleset/dns-fixed/Bing.list
+
+  OneDrive:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/OneDrive.list
+    path: ./ruleset/dns-fixed/OneDrive.list
+
+  Microsoft:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Microsoft.mrs
+    path: ./ruleset/dns-fixed/Microsoft.mrs
+
+  Apple:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Apple.mrs
+    path: ./ruleset/dns-fixed/Apple.mrs
+
+  AppleUpdate:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/Mojito909/CNProxy@main/Clash/Rules/AppleUpdate.list
+    path: ./ruleset/dns-fixed/AppleUpdate.list
+
+  AppleCN:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/AppleCN.mrs
+    path: ./ruleset/dns-fixed/AppleCN.mrs
+
+  Telegram:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Telegram.mrs
+    path: ./ruleset/dns-fixed/Telegram.mrs
+
+  Streaming:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Streaming.mrs
+    path: ./ruleset/dns-fixed/Streaming.mrs
+
+  Proxy:
+    <<: *RuleDomain
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Proxy.mrs
+    path: ./ruleset/dns-fixed/Proxy.mrs
+
+  China:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+    path: ./ruleset/dns-fixed/China.list
+
+  # ----------------------------
+  # IP 规则
+  # ----------------------------
+  AdvertisingIP:
+    <<: *RuleIP
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Advertising.mrs
+    path: ./ruleset/dns-fixed/AdvertisingIP.mrs
+
+  AIIP:
+    <<: *RuleIP
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/AI.mrs
+    path: ./ruleset/dns-fixed/AIIP.mrs
+
+  TelegramIP:
+    <<: *RuleIP
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Telegram.mrs
+    path: ./ruleset/dns-fixed/TelegramIP.mrs
+
+  StreamingIP:
+    <<: *RuleIP
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Streaming.mrs
+    path: ./ruleset/dns-fixed/StreamingIP.mrs
+
+  GoogleIP:
+    <<: *RuleIP
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Google.mrs
+    path: ./ruleset/dns-fixed/GoogleIP.mrs
+
+  ProxyIP:
+    <<: *RuleIP
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Proxy.mrs
+    path: ./ruleset/dns-fixed/ProxyIP.mrs
+
+  ChinaIP:
+    <<: *RuleIP
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/China.mrs
+    path: ./ruleset/dns-fixed/ChinaIP.mrs
+
+# ==================================================
+# 分流规则
+# ==================================================
+rules:
+  # ----------------------------
+  # 特殊规则
+  # ----------------------------
+  - AND,((DST-PORT,443),(NETWORK,UDP),(NOT,((GEOIP,CN)))),REJECT
+
+  # ----------------------------
+  # 广告 / 拦截
+  # ----------------------------
+  - RULE-SET,Tracking,广告过滤
+  - RULE-SET,Advertising,广告过滤
+  - RULE-SET,BanAD,广告过滤
+  - RULE-SET,AppleUpdate,广告过滤
+
+  # ----------------------------
+  # 直连白名单
+  # ----------------------------
+  - RULE-SET,LocalAreaNetwork,全球直连
+  - RULE-SET,UnBan,全球直连
+  - RULE-SET,AppleCN,全球直连
+  - RULE-SET,China,全球直连
+  - DOMAIN-SUFFIX,bing.cn,全球直连
+  - DOMAIN-SUFFIX,cn.bing.com,全球直连
+
+  # ----------------------------
+  # 服务分流
+  # ----------------------------
+  - RULE-SET,AI,人工智能
+  - RULE-SET,Google,谷歌服务
+  - RULE-SET,YouTube,油管视频
+  - RULE-SET,Bing,微软Bing
+  - RULE-SET,OneDrive,微软服务
+  - RULE-SET,Microsoft,微软服务
+  - RULE-SET,Apple,苹果服务
+  - RULE-SET,Telegram,电报消息
+  - RULE-SET,Streaming,国外媒体
+  - RULE-SET,Proxy,节点选择
+
+  # ----------------------------
+  # IP 分流
+  # ----------------------------
+  - RULE-SET,AdvertisingIP,广告过滤,no-resolve
+  - RULE-SET,AIIP,人工智能,no-resolve
+  - RULE-SET,TelegramIP,电报消息,no-resolve
+  - RULE-SET,StreamingIP,国外媒体,no-resolve
+  - RULE-SET,GoogleIP,谷歌服务,no-resolve
+  - RULE-SET,ProxyIP,节点选择,no-resolve
+  - RULE-SET,ChinaIP,全球直连,no-resolve
+
+  # ----------------------------
+  # 末尾兜底
+  # ----------------------------
+  - GEOIP,LAN,全球直连
+  - GEOIP,CN,全球直连
+  - MATCH,漏网之鱼
