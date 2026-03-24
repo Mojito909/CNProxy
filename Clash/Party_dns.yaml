@@ -1,5 +1,6 @@
 # ==================================================
 # Mihomo Party / Clash Verge Rev 覆写文件
+# 方案: DNS 泄露修复优先版
 # 目标:
 # 1. 优先解决 DNS 泄露
 # 2. 保留 AI 常用分流
@@ -31,6 +32,7 @@ FilterJP: &FilterJP "日|东京|JP|(?i)Japan"
 FilterUS: &FilterUS "美|US|(?i)States|American"
 FilterTW: &FilterTW "台|湾|TW|(?i)Taiwan"
 FilterSG: &FilterSG "新|坡|SG|(?i)Singapore"
+FilterKR: &FilterKR "韩|首尔|KR|(?i)Korea|KOR|Seoul"
 
 # ------------------------------
 # 锚点: 规则集模板
@@ -160,14 +162,10 @@ proxy-groups:
   # ----------------------------
   - name: 节点选择
     <<: *GroupSelect
+    include-all: true
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Proxy.png
     proxies:
       - 自动选择
-      - 美国节点
-      - 日本节点
-      - 狮城节点
-      - 香港节点
-      - 台湾节点
       - DIRECT
 
   - name: 自动选择
@@ -181,10 +179,12 @@ proxy-groups:
     <<: *GroupSelect
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Bot.png
     proxies:
+      - 节点选择
+      - 自动选择
       - 美国节点
       - 日本节点
       - 狮城节点
-      - 自动选择
+      - 韩国节点
       - 香港节点
       - 台湾节点
 
@@ -192,10 +192,12 @@ proxy-groups:
     <<: *GroupSelect
     icon: https://github.com/Koolson/Qure/raw/master/IconSet/Color/Google_Search.png
     proxies:
+      - 节点选择
+      - 自动选择
       - 美国节点
       - 日本节点
       - 狮城节点
-      - 自动选择
+      - 韩国节点
       - 香港节点
       - 台湾节点
 
@@ -203,10 +205,12 @@ proxy-groups:
     <<: *GroupSelect
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ForeignMedia.png
     proxies:
+      - 节点选择
       - 自动选择
       - 美国节点
       - 日本节点
       - 狮城节点
+      - 韩国节点
       - 香港节点
       - 台湾节点
 
@@ -221,15 +225,18 @@ proxy-groups:
       - 狮城节点
       - 日本节点
       - 台湾节点
+      - 韩国节点
 
   - name: 微软服务
     <<: *GroupSelect
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png
     proxies:
+      - 节点选择
+      - 自动选择
       - 美国节点
       - 日本节点
       - 狮城节点
-      - 自动选择
+      - 韩国节点
       - 香港节点
       - 台湾节点
 
@@ -237,6 +244,7 @@ proxy-groups:
     <<: *GroupSelect
     icon: https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/bing.png
     proxies:
+      - 节点选择
       - 自动选择
       - 全球直连
 
@@ -244,18 +252,20 @@ proxy-groups:
     <<: *GroupSelect
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple_2.png
     proxies:
-      - 自动选择
       - 节点选择
+      - 自动选择
       - 全球直连
 
   - name: 电报消息
     <<: *GroupSelect
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
     proxies:
+      - 节点选择
+      - 自动选择
       - 美国节点
       - 狮城节点
       - 日本节点
-      - 自动选择
+      - 韩国节点
       - 香港节点
       - 台湾节点
 
@@ -278,12 +288,14 @@ proxy-groups:
     <<: *GroupSelect
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png
     proxies:
+      - 节点选择
       - 自动选择
       - 香港节点
       - 日本节点
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
 
   # ----------------------------
   # 地区节点组
@@ -308,6 +320,11 @@ proxy-groups:
     filter: *FilterTW
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png
 
+  - name: 韩国节点
+    <<: *GroupAuto
+    filter: *FilterKR
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png
+
   - name: 狮城节点
     <<: *GroupAuto
     filter: *FilterSG
@@ -323,6 +340,7 @@ proxy-groups:
       - 美国节点
       - 台湾节点
       - 狮城节点
+      - 韩国节点
 
 # ==================================================
 # 规则集
@@ -349,12 +367,20 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
     path: ./ruleset/dns-fixed/BanAD.list
 
+  BanProgramAD:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list
+    path: ./ruleset/dns-fixed/BanProgramAD.list
+
   UnBan:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/UnBan.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list
     path: ./ruleset/dns-fixed/UnBan.list
 
   LocalAreaNetwork:
@@ -362,16 +388,32 @@ rule-providers:
     behavior: classical
     format: text
     interval: 86400
-    url: https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/LocalAreaNetwork.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
     path: ./ruleset/dns-fixed/LocalAreaNetwork.list
 
-  AI:
+  ProxyMedia:
     type: http
     behavior: classical
     format: text
     interval: 86400
-    url: https://raw.githubusercontent.com/szkane/ClashRuleSet/main/Clash/Ruleset/AiDomain.list
-    path: ./ruleset/dns-fixed/AiDomain.list
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list
+    path: ./ruleset/dns-fixed/ProxyMedia.list
+
+  ProxyLite:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyLite.list
+    path: ./ruleset/dns-fixed/ProxyLite.list
+
+  ChinaDomain:
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+    path: ./ruleset/dns-fixed/ChinaDomain.list
 
   Google:
     <<: *RuleDomain
@@ -400,9 +442,12 @@ rule-providers:
     path: ./ruleset/dns-fixed/OneDrive.list
 
   Microsoft:
-    <<: *RuleDomain
-    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Microsoft.mrs
-    path: ./ruleset/dns-fixed/Microsoft.mrs
+    type: http
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://fastly.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
+    path: ./ruleset/dns-fixed/Microsoft.list
 
   Apple:
     <<: *RuleDomain
@@ -437,14 +482,6 @@ rule-providers:
     url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/domain/Proxy.mrs
     path: ./ruleset/dns-fixed/Proxy.mrs
 
-  China:
-    type: http
-    behavior: classical
-    format: text
-    interval: 86400
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
-    path: ./ruleset/dns-fixed/China.list
-
   # ----------------------------
   # IP 规则
   # ----------------------------
@@ -452,11 +489,6 @@ rule-providers:
     <<: *RuleIP
     url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Advertising.mrs
     path: ./ruleset/dns-fixed/AdvertisingIP.mrs
-
-  AIIP:
-    <<: *RuleIP
-    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/AI.mrs
-    path: ./ruleset/dns-fixed/AIIP.mrs
 
   TelegramIP:
     <<: *RuleIP
@@ -472,11 +504,6 @@ rule-providers:
     <<: *RuleIP
     url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Google.mrs
     path: ./ruleset/dns-fixed/GoogleIP.mrs
-
-  ProxyIP:
-    <<: *RuleIP
-    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/Proxy.mrs
-    path: ./ruleset/dns-fixed/ProxyIP.mrs
 
   ChinaIP:
     <<: *RuleIP
@@ -498,6 +525,7 @@ rules:
   - RULE-SET,Tracking,广告过滤
   - RULE-SET,Advertising,广告过滤
   - RULE-SET,BanAD,广告过滤
+  - RULE-SET,BanProgramAD,广告过滤
   - RULE-SET,AppleUpdate,广告过滤
 
   # ----------------------------
@@ -505,15 +533,14 @@ rules:
   # ----------------------------
   - RULE-SET,LocalAreaNetwork,全球直连
   - RULE-SET,UnBan,全球直连
+  - RULE-SET,ChinaDomain,全球直连
   - RULE-SET,AppleCN,全球直连
-  - RULE-SET,China,全球直连
   - DOMAIN-SUFFIX,bing.cn,全球直连
   - DOMAIN-SUFFIX,cn.bing.com,全球直连
 
   # ----------------------------
   # 服务分流
   # ----------------------------
-  - RULE-SET,AI,人工智能
   - RULE-SET,Google,谷歌服务
   - RULE-SET,YouTube,油管视频
   - RULE-SET,Bing,微软Bing
@@ -522,17 +549,17 @@ rules:
   - RULE-SET,Apple,苹果服务
   - RULE-SET,Telegram,电报消息
   - RULE-SET,Streaming,国外媒体
+  - RULE-SET,ProxyMedia,节点选择
+  - RULE-SET,ProxyLite,节点选择
   - RULE-SET,Proxy,节点选择
 
   # ----------------------------
   # IP 分流
   # ----------------------------
   - RULE-SET,AdvertisingIP,广告过滤,no-resolve
-  - RULE-SET,AIIP,人工智能,no-resolve
   - RULE-SET,TelegramIP,电报消息,no-resolve
   - RULE-SET,StreamingIP,国外媒体,no-resolve
   - RULE-SET,GoogleIP,谷歌服务,no-resolve
-  - RULE-SET,ProxyIP,节点选择,no-resolve
   - RULE-SET,ChinaIP,全球直连,no-resolve
 
   # ----------------------------
