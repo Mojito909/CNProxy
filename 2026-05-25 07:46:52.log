@@ -1,0 +1,520 @@
+2026/05/25 07:46:52:390  [Info]  Loading tunnel preference...
+2026/05/25 07:46:52:390  [Base]  Load 1641 Fake IPs
+2026/05/25 07:46:52:399  [Base]  iPhone14,3 16.6.1 3.3.9(945)
+2026/05/25 07:46:52:451  [Base]  Load 1641 Fake IPs
+2026/05/25 07:46:52:451  [Base]  Net Environment:Xiaomi_C4_321 IP:192.168.31.116 Proxy Mode:TUN Only mitm h2:true rewrite:true script:true dns fallback:true flowModel:1 no default route:false ipmode:0
+2026/05/25 07:46:52:488  [Base]  Load 6147 rules. 31 scripts. 304 rewrites.
+2026/05/25 07:46:52:488  [Base]  Memory Usage:4.00M
+2026/05/25 07:46:52:488  [Base]  MITM enable: Check Cert.
+2026/05/25 07:46:55:924  [Warn]  [DOH3] Query comm-cohort.ess.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:46:55:924  [Warn]  [DOH3] Query comm-main.ess.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:46:56:047  [Warn]  [DOH3] Query bag.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:46:57:563  [Warn]  [DOQ][0] Query yaohuo.me from quic://dns.alidns.com timeout.
+2026/05/25 07:46:57:563  [Warn]  [DOH3] Query yaohuo.me from https://doh.pub/dns-query timeout.
+2026/05/25 07:46:57:563  [Warn]  [DOQ][0] Query yaohuo.me from quic://dns.pub timeout.
+2026/05/25 07:46:57:918  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779666412916] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 07:46:57:921  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779666412921] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:46:57:930  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779666412919] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:47:17:986  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:17:986  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 07:47:17:986  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 07:47:19:986  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779666434984] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 07:47:19:986  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779666434985] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:47:19:986  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779666434985] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:47:23:761  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:23:761  [Warn]  [DOH3] Query mg2.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:23:761  [Warn]  [DOH3] Query mg1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:23:761  [Warn]  [DOH3] Query mg00.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:23:766  [Warn]  [DOH3] Query app.adjust.world from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:23:790  [Warn]  [DOH3] Query hk01.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:23:861  [Warn]  [DOH3] Query amp-api-edge.apps.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:47:23:861  [Warn]  [DOQ][0] Query amp-api-edge.apps.apple.com from quic://dns.pub timeout.
+2026/05/25 07:47:23:861  [Warn]  [DOQ][0] Query amp-api-edge.apps.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 07:47:25:761  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779666440756] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 07:47:25:761  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779666440756] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:47:25:761  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779666440756] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:51:04:708  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 07:51:04:769  [Warn]  [DOH3] Query mesu.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:51:04:851  [Warn]  [DOH3] Query ocsp2.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:51:05:981  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:51:06:418  [Warn]  [DOH3] Query api.caiyunapp.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:51:06:708  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779666661703] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 07:51:06:708  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779666661703] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:51:06:708  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779666661704] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:51:06:952  [Warn]  [DOQ][0] Query kt-prod.ess.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 07:51:06:952  [Warn]  [DOQ][0] Query kt-prod.ess.apple.com from quic://dns.pub timeout.
+2026/05/25 07:51:06:952  [Warn]  [DOH3] Query kt-prod.ess.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:55:46:682  [Warn]  [DOH3] Query weather-data.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:55:46:756  [Warn]  [DOH3] Query ocsp2.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:55:46:769  [Warn]  [DOH3] Query ocsp.digicert.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:55:46:769  [Warn]  [DOQ][0] Query ocsp.digicert.com from quic://dns.pub timeout.
+2026/05/25 07:55:46:769  [Warn]  [DOQ][0] Query ocsp.digicert.com from quic://dns.alidns.com timeout.
+2026/05/25 07:55:48:682  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779666943677] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 07:55:48:682  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779666943677] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:55:48:682  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779666943680] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:01:251  [Warn]  [DOQ][0] Query yaohuo.me from quic://dns.pub timeout.
+2026/05/25 07:56:01:251  [Warn]  [DOQ][0] Query yaohuo.me from quic://dns.alidns.com timeout.
+2026/05/25 07:56:01:251  [Warn]  [DOH3] Query yaohuo.me from https://doh.pub/dns-query timeout.
+2026/05/25 07:56:03:251  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779666958248] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:03:251  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779666958248] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:03:251  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779666958247] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:08:098  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 07:56:10:099  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779666965094] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:10:099  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779666965095] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:10:099  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779666965094] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:11:008  [Warn]  [DOH3] Query amp-api-edge.apps.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:56:11:008  [Warn]  [DOH3] Query inappcheck.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:56:11:107  [Warn]  [DOH3] Query ocsp2.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 07:56:11:268  [Warn]  [DOQ][0] Query mg-1.yuanbaojc.site from quic://dns.pub timeout.
+2026/05/25 07:56:11:268  [Warn]  [DOQ][0] Query mg-1.yuanbaojc.site from quic://dns.alidns.com timeout.
+2026/05/25 07:56:11:268  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:56:53:964  [Warn]  [DOQ][0] Query mg-1.yuanbaojc.site from quic://dns.alidns.com timeout.
+2026/05/25 07:56:53:964  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 07:56:53:964  [Warn]  [DOQ][0] Query mg-1.yuanbaojc.site from quic://dns.pub timeout.
+2026/05/25 07:56:55:961  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667010958] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:55:961  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667010959] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 07:56:55:961  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667010958] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:00:05:118  [Warn]  [DOH3] Query weather-data.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:00:06:854  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 08:00:06:854  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 08:00:06:854  [Warn]  [DOH3] Query pnsfeedback.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:00:07:114  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667202109] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:00:07:114  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667202109] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:00:07:114  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667202112] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:00:50:033  [Warn]  [DOQ][0] Query inappcheck.itunes.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:00:50:033  [Warn]  [DOH3] Query inappcheck.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:00:50:033  [Warn]  [DOQ][0] Query inappcheck.itunes.apple.com from quic://dns.pub timeout.
+2026/05/25 08:00:52:030  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667247027] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:00:52:030  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667247028] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:00:52:030  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667247028] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:03:49:353  [Warn]  [DOH3] Query lf-leads-fe-scm.bytecdn.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:50:064  [Warn]  [DOH3] Query zlink.ugsdk.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:50:576  [Warn]  [DOH3] Query lf3-font-sign.bytehwm.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:50:854  [Warn]  [DOH3] Query lf-dy-sourcecdn-tos.bytegecko.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:51:185  [Warn]  [DOH3] Query render.ecombdpage.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:51:290  [Warn]  [DOH3] Query api5-normal-aweme-lf.doubao.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:51:351  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667426347] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:03:51:350  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667426346] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:03:51:352  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667426349] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:03:54:130  [Warn]  [DOH3] Query af2fffc2.ydycdn.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:54:130  [Warn]  [DOQ][0] Query af2fffc2.ydycdn.com from quic://dns.alidns.com timeout.
+2026/05/25 08:03:54:130  [Warn]  [DOQ][0] Query af2fffc2.ydycdn.com from quic://dns.pub timeout.
+2026/05/25 08:03:54:953  [Warn]  [DOH3] Query 987638099.ahdohpiechei.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:54:957  [Warn]  [DOQ][0] Query 2871786061.ahdohpiechei.com from quic://dns.alidns.com timeout.
+2026/05/25 08:03:54:957  [Warn]  [DOQ][0] Query 2871786061.ahdohpiechei.com from quic://dns.pub timeout.
+2026/05/25 08:03:54:957  [Warn]  [DOH3] Query 2871786061.ahdohpiechei.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:03:56:953  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667431948] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:03:56:953  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667431950] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:03:56:953  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667431949] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:04:20:381  [Warn]  [DOH3] Query coelacanth.yingt.fun from https://doh.pub/dns-query timeout.
+2026/05/25 08:04:20:390  [Warn]  [DOQ][0] Query orzonera.yingt.fun from quic://dns.alidns.com timeout.
+2026/05/25 08:04:20:390  [Warn]  [DOH3] Query orzonera.yingt.fun from https://doh.pub/dns-query timeout.
+2026/05/25 08:04:20:390  [Warn]  [DOQ][0] Query orzonera.yingt.fun from quic://dns.pub timeout.
+2026/05/25 08:04:22:378  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667457377] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:04:22:378  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667457376] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:04:22:378  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667457376] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:04:40:552  [Warn]  [DOQ][0] Query amp-api-edge.apps.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:04:40:552  [Warn]  [DOH3] Query amp-api-edge.apps.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:04:40:552  [Warn]  [DOQ][0] Query amp-api-edge.apps.apple.com from quic://dns.pub timeout.
+2026/05/25 08:04:42:549  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667477547] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:04:42:549  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667477548] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:04:42:550  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667477550] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:05:02:760  [Warn]  [DOH3] Query rs1727n-41.free-lbv13.idouyinvod.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:05:02:760  [Warn]  [DOQ][0] Query rs1727n-41.free-lbv13.idouyinvod.com from quic://dns.pub timeout.
+2026/05/25 08:05:02:760  [Warn]  [DOQ][0] Query rs1727n-41.free-lbv13.idouyinvod.com from quic://dns.alidns.com timeout.
+2026/05/25 08:05:04:760  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667499756] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:05:04:760  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667499757] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:05:04:760  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667499758] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:05:11:823  [Warn]  [DOQ][0] Query vc-brain.ndcpp.com from quic://dns.alidns.com timeout.
+2026/05/25 08:05:11:823  [Warn]  [DOQ][0] Query vc-brain.ndcpp.com from quic://dns.pub timeout.
+2026/05/25 08:05:11:823  [Warn]  [DOH3] Query vc-brain.ndcpp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:05:13:820  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667508818] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:05:13:820  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667508815] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:05:13:820  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667508816] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:07:52:763  [Warn]  [DOH3] Query resolver.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:53:641  [Warn]  [DOH3] Query dualstack-logs.amap.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:53:850  [Warn]  [DOH3] Query mailsso.mxhichina.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:53:850  [Warn]  [DOH3] Query dualstack-restios.amap.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:54:758  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667669758] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:07:54:759  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667669758] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:07:54:760  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667669760] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:07:55:518  [Warn]  [DOH3] Query orange-dc.alibaba.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:55:581  [Warn]  [DOH3] Query adashx.ut.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:55:880  [Warn]  [DOQ][0] Query h-adashx.ut.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 08:07:55:880  [Warn]  [DOQ][0] Query h-adashx.ut.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 08:07:55:880  [Warn]  [DOH3] Query h-adashx.ut.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:58:890  [Warn]  [DOH3] Query alimei-auth.alibaba.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:07:58:890  [Warn]  [DOQ][0] Query alimei-auth.alibaba.com from quic://dns.alidns.com timeout.
+2026/05/25 08:07:58:890  [Warn]  [DOQ][0] Query alimei-auth.alibaba.com from quic://dns.pub timeout.
+2026/05/25 08:08:00:888  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667675887] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:00:888  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667675888] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:00:888  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667675886] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:33:652  [Warn]  [DOH3] Query bag.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:08:33:652  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:08:33:652  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.pub timeout.
+2026/05/25 08:08:35:647  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667710646] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:35:648  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667710645] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:35:648  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667710648] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:57:004  [Warn]  [DOQ][0] Query vc-brain.ndcpp.com from quic://dns.alidns.com timeout.
+2026/05/25 08:08:57:004  [Warn]  [DOH3] Query vc-brain.ndcpp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:08:57:004  [Warn]  [DOQ][0] Query vc-brain.ndcpp.com from quic://dns.pub timeout.
+2026/05/25 08:08:59:001  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667733997] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:59:001  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667733998] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:08:59:001  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667734000] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:09:09:892  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 08:09:09:892  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:09:09:892  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 08:09:11:888  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667746886] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:09:11:888  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667746887] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:09:11:891  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667746890] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:09:26:879  [Warn]  [DOH3] Query 1e10adc3949ba59abczqzx3cyxivdhrixgqa5hpy4za.dahhxxttxs.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:09:26:879  [Warn]  [DOQ][0] Query 1e10adc3949ba59abczqzx3cyxivdhrixgqa5hpy4za.dahhxxttxs.com from quic://dns.alidns.com timeout.
+2026/05/25 08:09:26:879  [Warn]  [DOQ][0] Query 1e10adc3949ba59abczqzx3cyxivdhrixgqa5hpy4za.dahhxxttxs.com from quic://dns.pub timeout.
+2026/05/25 08:09:28:880  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667763875] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:09:28:880  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667763877] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:09:28:880  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667763874] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:12:25:650  [Warn]  [DOH3] Query ecom5-normal-hl.ecombdapi.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:12:27:611  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.pub timeout.
+2026/05/25 08:12:27:611  [Warn]  [DOH3] Query api.caiyunapp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:12:27:611  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.alidns.com timeout.
+2026/05/25 08:12:27:650  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667942646] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:12:27:650  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667942646] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:12:27:650  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667942649] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:12:32:246  [Warn]  [DOH3] Query 1e10adc3949ba59abtnb564bhtegfq6pvs4otej766e.dahhxxttxs.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:12:32:246  [Warn]  [DOQ][0] Query 1e10adc3949ba59abtnb564bhtegfq6pvs4otej766e.dahhxxttxs.com from quic://dns.pub timeout.
+2026/05/25 08:12:32:246  [Warn]  [DOQ][0] Query 1e10adc3949ba59abtnb564bhtegfq6pvs4otej766e.dahhxxttxs.com from quic://dns.alidns.com timeout.
+2026/05/25 08:12:34:242  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779667949237] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:12:34:242  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779667949240] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:12:34:242  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779667949238] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:13:56:999  [Warn]  [DOH3] Query vc-brain.ndcpp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:13:56:999  [Warn]  [DOQ][0] Query vc-brain.ndcpp.com from quic://dns.alidns.com timeout.
+2026/05/25 08:13:56:999  [Warn]  [DOQ][0] Query vc-brain.ndcpp.com from quic://dns.pub timeout.
+2026/05/25 08:13:58:996  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668033992] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:13:58:996  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668033991] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:13:58:996  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668033993] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:14:57:844  [Warn]  [DOQ][0] Query 987638099.ahdohpiechei.com from quic://dns.alidns.com timeout.
+2026/05/25 08:14:57:848  [Warn]  [DOQ][0] Query 987638099.ahdohpiechei.com from quic://dns.pub timeout.
+2026/05/25 08:14:57:848  [Warn]  [DOH3] Query 987638099.ahdohpiechei.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:14:59:843  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668094839] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:14:59:843  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668094840] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:15:04:843  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668094842] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:16:21:393  [Warn]  [DOH3] Query 987638335.ahdohpiechei.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:16:21:393  [Warn]  [DOQ][0] Query 987638335.ahdohpiechei.com from quic://dns.alidns.com timeout.
+2026/05/25 08:16:21:393  [Warn]  [DOQ][0] Query 987638335.ahdohpiechei.com from quic://dns.pub timeout.
+2026/05/25 08:16:23:393  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668178387] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:16:23:393  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668178388] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:16:23:393  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668178390] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:16:50:955  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 08:16:50:955  [Warn]  [DOH3] Query pnsfeedback.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:16:50:955  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 08:16:52:950  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668207948] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:16:52:950  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668207947] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:16:52:951  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668207950] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:16:58:312  [Warn]  [DOQ][0] Query push-stat2.myzaker.com from quic://dns.alidns.com timeout.
+2026/05/25 08:16:58:312  [Warn]  [DOH3] Query push-stat2.myzaker.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:16:58:312  [Warn]  [DOQ][0] Query push-stat2.myzaker.com from quic://dns.pub timeout.
+2026/05/25 08:17:00:312  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668215308] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:17:00:312  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668215306] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:17:00:312  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668215307] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:17:20:370  [Warn]  [DOQ][0] Query coelacanth.yingt.fun from quic://dns.alidns.com timeout.
+2026/05/25 08:17:20:371  [Warn]  [DOQ][0] Query coelacanth.yingt.fun from quic://dns.pub timeout.
+2026/05/25 08:17:20:373  [Warn]  [DOH3] Query coelacanth.yingt.fun from https://doh.pub/dns-query timeout.
+2026/05/25 08:17:22:371  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668237367] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:17:22:371  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668237368] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:17:22:371  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668237371] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:18:21:915  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:18:21:915  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.pub timeout.
+2026/05/25 08:18:21:916  [Warn]  [DOH3] Query bag.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:19:03:849  [Warn]  Retry query DNS over udp. Domain:init.push.apple.com
+2026/05/25 08:19:06:569  [Warn]  [DNS O UDP] Send A query for:dns.pub timeout.
+2026/05/25 08:19:06:853  [Warn]  [DNS O UDP] Send A query for:init.push.apple.com timeout.
+2026/05/25 08:19:06:934  [Warn]  [DNS O UDP] Send A query for:dns.pub timeout.
+2026/05/25 08:19:06:934  [Warn]  [DOH3] Query gs-loc-cn.apple.com from https://dns.alidns.com/dns-query timeout.
+2026/05/25 08:19:06:934  [Warn]  [DOH3] Query gs-loc-cn.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:19:08:935  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668343930] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:19:08:935  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668343931] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:19:09:863  [Warn]  [DOQ][0] Query init.push.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:19:09:863  [Warn]  [DOH3] Query init.push.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:19:09:863  [Warn]  [DOQ][0] Query init.push.apple.com from quic://dns.pub timeout.
+2026/05/25 08:21:10:367  [Warn]  [DOQ][0] Query weather-data.apple.com from quic://dns.pub timeout.
+2026/05/25 08:21:12:545  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668467331] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:22:15:436  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 08:22:15:436  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:22:15:436  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 08:22:17:434  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668532428] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:22:17:434  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668532429] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:22:17:434  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668532431] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:23:18:904  [Warn]  [DOH3] Query api.caiyunapp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:23:18:906  [Warn]  [DOH3] Query caiyunapp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:23:18:914  [Warn]  [DOQ][0] Query dualstack-restios.amap.com from quic://dns.pub timeout.
+2026/05/25 08:23:18:914  [Warn]  [DOQ][0] Query dualstack-restios.amap.com from quic://dns.alidns.com timeout.
+2026/05/25 08:23:18:914  [Warn]  [DOH3] Query dualstack-restios.amap.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:23:20:899  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668595897] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:23:20:899  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668595897] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:23:20:900  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668595899] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:16:298  [Warn]  [DOQ][0] Query gs-loc-cn.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:25:16:298  [Warn]  [DNS O UDP] Send A query for:dns.pub timeout.
+2026/05/25 08:25:16:298  [Warn]  [DOH3] Query gs-loc-cn.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:25:16:298  [Warn]  [DOQ][0] Query gs-loc-cn.apple.com from quic://dns.pub timeout.
+2026/05/25 08:25:18:294  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668713292] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:18:294  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668713291] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:23:296  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668713294] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:51:892  [Warn]  [DOH3] Query resolver.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:25:51:947  [Warn]  [DOH3] Query dualstack-restios.amap.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:25:52:281  [Warn]  [DOH3] Query h-adashx.ut.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:25:53:890  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668748889] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:53:890  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668748890] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:54:180  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 08:25:54:180  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 08:25:54:180  [Warn]  [DOH3] Query pnsfeedback.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:25:57:926  [Warn]  [DOH3] Query adashx.ut.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:25:57:926  [Warn]  [DOQ][0] Query adashx.ut.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 08:25:57:926  [Warn]  [DOQ][0] Query adashx.ut.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 08:25:58:895  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779668748891] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:59:922  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779668754921] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:25:59:923  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779668754922] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:30:21:171  [Warn]  [DOH3] Query adashx.ut.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:30:21:797  [Warn]  [DOH3] Query dualstack-restios.amap.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:30:21:797  [Warn]  [DOQ][0] Query dualstack-restios.amap.com from quic://dns.alidns.com timeout.
+2026/05/25 08:30:21:797  [Warn]  [DOQ][0] Query dualstack-restios.amap.com from quic://dns.pub timeout.
+2026/05/25 08:30:23:169  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669018165] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:30:23:169  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669018166] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:30:23:169  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669018165] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:30:26:226  [Warn]  [DOH3] Query mg1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:30:26:227  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:30:26:317  [Warn]  [DOQ][0] Query inappcheck.itunes.apple.com from quic://dns.pub timeout.
+2026/05/25 08:30:26:317  [Warn]  [DOH3] Query inappcheck.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:30:26:317  [Warn]  [DOQ][0] Query inappcheck.itunes.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:30:28:225  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669023224] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:30:28:225  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669023223] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:30:28:225  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669023223] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:32:06:042  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:32:06:042  [Warn]  [DOQ][0] Query mg00.yuanbaojc.site from quic://dns.pub timeout.
+2026/05/25 08:32:06:042  [Warn]  [DOH3] Query mg2.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:32:06:042  [Warn]  [DOQ][0] Query mg00.yuanbaojc.site from quic://dns.alidns.com timeout.
+2026/05/25 08:32:06:042  [Warn]  [DOH3] Query mg1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:32:06:042  [Warn]  [DOH3] Query mg00.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:32:08:038  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669123033] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:32:08:038  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669123032] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:32:08:038  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669123034] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:33:43:805  [Warn]  [DOH3] Query configuration.ls.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:33:43:818  [Warn]  [DOH3] Query dispatcher.is.autonavi.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:33:43:948  [Warn]  [DOQ][0] Query ocsp2.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:33:43:948  [Warn]  [DOQ][0] Query ocsp2.apple.com from quic://dns.pub timeout.
+2026/05/25 08:33:43:948  [Warn]  [DOH3] Query ocsp2.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:33:45:802  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669220798] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:33:45:802  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669220799] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:33:45:802  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669220798] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:34:29:214  [Warn]  [DOH3] Query inappcheck.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:34:31:208  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669266206] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:34:31:208  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669266207] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:34:31:209  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669266208] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:34:31:282  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:34:31:282  [Warn]  [DOQ][0] Query mg-1.yuanbaojc.site from quic://dns.pub timeout.
+2026/05/25 08:34:31:282  [Warn]  [DOQ][0] Query mg-1.yuanbaojc.site from quic://dns.alidns.com timeout.
+2026/05/25 08:35:12:149  [Warn]  [DOH3] Query configuration.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:35:12:843  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:35:12:843  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 08:35:12:843  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 08:35:14:149  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669309148] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:35:14:149  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669309147] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:35:14:149  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669309147] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:36:24:177  [Warn]  [DOH3] Query mg1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:36:26:061  [Warn]  [DOQ][0] Query dispatcher.is.autonavi.com from quic://dns.pub timeout.
+2026/05/25 08:36:26:061  [Warn]  [DOQ][0] Query dispatcher.is.autonavi.com from quic://dns.alidns.com timeout.
+2026/05/25 08:36:26:061  [Warn]  [DOH3] Query dispatcher.is.autonavi.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:36:26:173  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669381172] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:36:26:173  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669381173] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:36:26:176  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669381176] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:36:33:036  [Warn]  [DOH3] Query mg-1.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 08:36:33:062  [Warn]  [DOH3] Query inappcheck.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:36:34:447  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 08:36:34:447  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 08:36:34:447  [Warn]  [DOH3] Query pnsfeedback.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:36:35:034  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669390033] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:36:35:034  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669390033] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:36:35:034  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669390033] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:25:975  [Warn]  [DOH3] Query api.caiyunapp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:37:25:975  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.alidns.com timeout.
+2026/05/25 08:37:25:975  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.pub timeout.
+2026/05/25 08:37:27:975  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669442970] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:27:975  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669442972] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:27:975  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669442971] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:33:431  [Warn]  [DOH3] Query itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:37:33:553  [Warn]  [DOQ][0] Query ocsp2.apple.com from quic://dns.pub timeout.
+2026/05/25 08:37:33:553  [Warn]  [DOH3] Query ocsp2.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:37:33:553  [Warn]  [DOQ][0] Query ocsp2.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:37:35:425  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669450424] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:35:425  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669450422] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:35:425  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669450423] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:37:692  [Warn]  [DOQ][0] Query weather-data.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:37:37:692  [Warn]  [DOH3] Query weather-data.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:37:37:692  [Warn]  [DOQ][0] Query weather-data.apple.com from quic://dns.pub timeout.
+2026/05/25 08:37:48:490  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:37:48:490  [Warn]  [DOH3] Query bag.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:37:48:490  [Warn]  [DOH3] Query bag.itunes.apple.com from https://dns.alidns.com/dns-query timeout.
+2026/05/25 08:37:48:490  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.pub timeout.
+2026/05/25 08:37:50:483  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669465482] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:50:484  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669465483] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:50:485  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669465484] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:37:51:857  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:37:51:976  [Warn]  [DOQ][0] Query swallow.apple.com from quic://dns.pub timeout.
+2026/05/25 08:37:51:976  [Warn]  [DOQ][0] Query swallow.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:37:51:976  [Warn]  [DOH3] Query swallow.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:40:23:092  [Warn]  [DOH3] Query configuration.ls.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:40:23:163  [Warn]  [DOQ][0] Query gs-loc-cn.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:40:23:163  [Warn]  [DOQ][0] Query gs-loc-cn.apple.com from quic://dns.pub timeout.
+2026/05/25 08:40:23:163  [Warn]  [DOH3] Query gs-loc-cn.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:40:25:089  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669620083] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:40:25:089  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669620084] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:40:25:089  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669620085] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:42:32:001  [Warn]  [DOQ][0] Query p212-caldav.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 08:42:32:001  [Warn]  [DOQ][0] Query p212-caldav.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 08:42:32:001  [Warn]  [DOH3] Query p212-contacts.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:42:32:001  [Warn]  [DOH3] Query p212-caldav.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:42:33:998  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669748997] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:42:33:998  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669748995] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:42:33:998  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669748996] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:42:56:674  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:42:56:675  [Warn]  [DOQ][0] Query bag.itunes.apple.com from quic://dns.pub timeout.
+2026/05/25 08:42:56:675  [Warn]  [DOH3] Query bag.itunes.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:42:58:677  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669773671] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:42:58:677  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669773672] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:42:58:677  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669773674] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:43:05:064  [Warn]  [DOQ][0] Query gdmf.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:43:05:064  [Warn]  [DOQ][0] Query gdmf.apple.com from quic://dns.pub timeout.
+2026/05/25 08:43:05:065  [Warn]  [DOH3] Query gdmf.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:07:064  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669782060] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:43:07:064  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669782062] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:43:07:064  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669782061] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:43:09:508  [Warn]  [DOH3] Query ocsp2.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:09:518  [Warn]  [DOH3] Query time.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:09:675  [Warn]  [DOH3] Query init-p01md.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:09:675  [Warn]  [DOH3] Query init.ess.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:09:875  [Warn]  [DOQ][0] Query apps.mzstatic.com from quic://dns.alidns.com timeout.
+2026/05/25 08:43:09:875  [Warn]  [DOH3] Query apps.mzstatic.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:09:875  [Warn]  [DOQ][0] Query apps.mzstatic.com from quic://dns.pub timeout.
+2026/05/25 08:43:10:261  [Warn]  [DOH3] Query ipcdn.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:10:288  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:11:787  [Warn]  [DOH3] Query pnsfeedback.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:43:11:787  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 08:43:11:787  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 08:43:12:260  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669787255] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:43:12:260  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669787255] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:43:12:260  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669787256] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:44:01:530  [Warn]  [DOQ][0] Query p212-fmfmobile.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 08:44:01:530  [Warn]  [DOH3] Query p212-fmfmobile.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:44:01:530  [Warn]  [DOQ][0] Query p212-fmfmobile.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 08:44:03:529  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669838524] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:44:03:529  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669838526] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:44:03:529  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669838524] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:45:20:962  [Warn]  [DOQ][0] Query pancake.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:45:20:963  [Warn]  [DOQ][0] Query pancake.apple.com from quic://dns.pub timeout.
+2026/05/25 08:45:20:964  [Warn]  [DOH3] Query pancake.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:45:22:962  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779669917959] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:45:22:962  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779669917960] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:45:22:962  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779669917962] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:47:04:033  [Warn]  [DOH3] Query api.smoot.apple.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:47:04:908  [Warn]  [DOH3] Query kt-prod.ess.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:47:04:990  [Warn]  [DOH3] Query ocsp2.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:47:05:772  [Warn]  [DOQ][0] Query guzzoni.apple.com from quic://dns.pub timeout.
+2026/05/25 08:47:05:772  [Warn]  [DOQ][0] Query guzzoni.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:47:05:772  [Warn]  [DOH3] Query guzzoni.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:47:06:032  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670021028] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:47:06:032  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670021028] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:47:06:032  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670021029] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:47:47:063  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 08:47:47:063  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 08:47:47:063  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:47:49:063  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670064058] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:47:49:063  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670064058] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:47:49:063  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670064060] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:48:38:180  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:48:40:177  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670115174] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:48:40:177  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670115175] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:48:40:178  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670115178] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:48:40:361  [Warn]  [DOQ][0] Query configuration.apple.com from quic://dns.pub timeout.
+2026/05/25 08:48:40:361  [Warn]  [DOH3] Query configuration.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:48:40:361  [Warn]  [DOQ][0] Query configuration.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:53:36:932  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 08:53:36:932  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 08:53:36:932  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 08:53:38:931  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670413926] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:53:38:931  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670413928] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:53:38:931  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670413925] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:55:23:884  [Warn]  [DOH3] Query api.caiyunapp.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:55:23:884  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.alidns.com timeout.
+2026/05/25 08:55:23:884  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.pub timeout.
+2026/05/25 08:55:25:882  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670520876] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:55:25:882  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670520879] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:55:25:882  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670520877] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:58:31:924  [Warn]  [DOQ][0] Query time.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:58:31:924  [Warn]  [DOH3] Query time.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:58:31:924  [Warn]  [DOQ][0] Query time.apple.com from quic://dns.pub timeout.
+2026/05/25 08:58:33:923  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670708918] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 08:58:33:923  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670708917] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:58:33:923  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670708919] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:59:39:184  [Warn]  [DOH3] Query gsp-ssl.ls.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 08:59:39:184  [Warn]  [DOQ][0] Query gsp-ssl.ls.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 08:59:39:184  [Warn]  [DOQ][0] Query gsp-ssl.ls.apple.com from quic://dns.pub timeout.
+2026/05/25 08:59:41:182  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670776177] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 08:59:41:182  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670776180] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 08:59:41:182  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670776177] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:01:40:448  [Warn]  [DOH3] Query dispatcher.is.autonavi.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:01:40:752  [Warn]  [DOQ][0] Query weather-data.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 09:01:40:752  [Warn]  [DOH3] Query weather-data.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:01:40:752  [Warn]  [DOQ][0] Query weather-data.apple.com from quic://dns.pub timeout.
+2026/05/25 09:01:42:444  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779670897438] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:01:42:444  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779670897439] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:01:42:444  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779670897441] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:03:42:377  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 09:03:42:377  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 09:03:42:379  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 09:03:44:379  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671019375] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:03:44:379  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671019377] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:03:44:379  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671019374] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:08:01:558  [Warn]  [DOH3] Query swallow.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:08:01:558  [Warn]  [DOQ][0] Query swallow.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 09:08:01:558  [Warn]  [DOQ][0] Query swallow.apple.com from quic://dns.pub timeout.
+2026/05/25 09:08:03:556  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671278554] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:08:03:556  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671278551] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:08:03:556  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671278551] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:08:16:990  [Warn]  [DOQ][0] Query weather-data.apple.com from quic://dns.pub timeout.
+2026/05/25 09:08:16:990  [Warn]  [DOQ][0] Query weather-data.apple.com from quic://dns.alidns.com timeout.
+2026/05/25 09:08:16:991  [Warn]  [DOH3] Query weather-data.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:08:18:988  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671293986] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:08:18:988  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671293987] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:08:18:989  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671293989] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:09:18:248  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 09:09:18:248  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 09:09:18:248  [Warn]  [DOH3] Query pnsfeedback.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:09:20:248  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671355247] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:09:20:248  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671355246] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:09:20:248  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671355248] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:10:12:471  [Warn]  [DOH3] Query img-s-msn-com.akamaized.net from https://doh.pub/dns-query timeout.
+2026/05/25 09:10:12:548  [Warn]  [DOH3] Query hk01.yuanbaojc.site from https://doh.pub/dns-query timeout.
+2026/05/25 09:10:13:704  [Warn]  [DOQ][0] Query gateway.bingviz.microsoftapp.net from quic://dns.pub timeout.
+2026/05/25 09:10:13:704  [Warn]  [DOH3] Query gateway.bingviz.microsoftapp.net from https://doh.pub/dns-query timeout.
+2026/05/25 09:10:13:704  [Warn]  [DOQ][0] Query gateway.bingviz.microsoftapp.net from quic://dns.alidns.com timeout.
+2026/05/25 09:10:14:466  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671409463] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:10:14:466  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671409464] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:10:14:466  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671409463] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:12:41:491  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.alidns.com timeout.
+2026/05/25 09:12:41:491  [Warn]  [DOH3] Query pnsfeedback.dingtalk.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:12:41:491  [Warn]  [DOQ][0] Query pnsfeedback.dingtalk.com from quic://dns.pub timeout.
+2026/05/25 09:12:43:488  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671558487] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:12:43:488  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671558487] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:12:48:488  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671558488] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:13:44:419  [Warn]  [DOH3] Query time.apple.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:13:44:523  [Warn]  [DOH3] Query gateway.icloud.com.cn from https://doh.pub/dns-query timeout.
+2026/05/25 09:13:44:524  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.alidns.com timeout.
+2026/05/25 09:13:44:524  [Warn]  [DOQ][0] Query gateway.icloud.com.cn from quic://dns.pub timeout.
+2026/05/25 09:13:46:415  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671621410] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:13:46:415  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671621413] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
+2026/05/25 09:13:46:415  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671621410] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:17:39:510  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.alidns.com timeout.
+2026/05/25 09:17:39:514  [Warn]  [DOQ][0] Query api.caiyunapp.com from quic://dns.pub timeout.
+2026/05/25 09:17:39:515  [Warn]  [DOH3] Query api.caiyunapp.com from https://doh.pub/dns-query timeout.
+2026/05/25 09:17:41:511  [Warn]  [5c6282b038611b2821841c2fc0de33e3_1779671856508] DOQ handshake to quic://dns.pub failed. Error:QUIC Handshake Timeout
+2026/05/25 09:17:41:511  [Warn]  [046cc67baeda5d15db033f6d3dea2c94_1779671856507] DOQ handshake to quic://dns.alidns.com failed. Error:QUIC Handshake Timeout
+2026/05/25 09:17:41:514  [Warn]  [a7714ee17e924849fa0f1df4c0087b2e_1779671856513] DOH3 handshake to https://doh.pub/dns-query failed. Error:QUIC Handshake Timeout
